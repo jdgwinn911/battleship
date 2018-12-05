@@ -12,7 +12,10 @@ class Ship
     def size_of_ship()
         return @size
     end
-    
+
+    def take_a_hit()
+    end
+
 
     attr_reader :size
     attr_reader :name

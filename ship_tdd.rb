@@ -40,4 +40,14 @@ class Boats < Minitest::Test
         assert_equal(Ship, x.class)
     end
 
+    def test_that_destroyer_exists
+        x = Ship.new(2, "Destroyer")
+        assert_equal(Ship, x.class)
+    end
+
+    def test_that_the_ships_can_be_hit
+        x = Ship.new(2, "Destroyer")
+        assert_equal("Ship was hit", x.take_a_hit())
+    end
+
 end
