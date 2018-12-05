@@ -18,7 +18,7 @@ class Ship
         if @hit_count == @size
             return "#{name.capitalize} was Destroyed"
         else
-            return "You hit a ship"
+            return "You hit a ship!"
         end
     end
 
