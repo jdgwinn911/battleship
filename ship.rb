@@ -1,14 +1,17 @@
 class Ship
-    def initialize(length, name)
-        @length = length
+    def initialize(size, name)
+        @size = size
         @name = name
-        @hits = 0 
-        @spot = false
     end
 
-    def carrier()
-        Ship.new(5, "Carrier")
+    def type_of_ship()
+        return @name
     end
 
-    attr_reader :length, :name
+    def size_of_ship()
+        return @size
+    end
+
+    attr_reader :size
+    attr_reader :name
 end
