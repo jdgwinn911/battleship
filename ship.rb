@@ -3,6 +3,7 @@ class Ship
         @size = size
         @name = name
         @hit_count = 0
+        @placement 
     end
 
     def type_of_ship()
@@ -22,7 +23,10 @@ class Ship
         end
     end
 
-
+    def place_ship()
+       
+    end
+    attr_reader :placement
     attr_reader :size
     attr_reader :name
     attr_reader :hit_count
