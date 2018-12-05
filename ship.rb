@@ -14,6 +14,12 @@ class Ship
     end
 
     def take_a_hit()
+        @hit_count += 1
+        if @hit_count == @size
+            return "#{name.capitalize} was Destroyed"
+        else
+            return "You hit a ship"
+        end
     end
 
 
