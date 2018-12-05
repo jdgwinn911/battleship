@@ -35,4 +35,9 @@ class Boats < Minitest::Test
         assert_equal(4, x.size_of_ship())
     end
 
+    def test_that_cruiser_exists
+        x = Ship.new(3, "Cruiser")
+        assert_equal(Ship, x.class)
+    end
+
 end
