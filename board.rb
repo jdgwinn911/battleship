@@ -1,11 +1,5 @@
 require_relative "ship.rb"
-# class Place
-#     def initialize(x, y)
-#       @cord = [x, y]
-
-#     end
-#     attr_reader :cord
-# end
+require_relative "cell.rb"
 
 class Grid 
     def initialize(size = 12)
@@ -16,15 +10,13 @@ class Grid
         ship = "ship"
         @grid[x][y] = ship
     end
-    attr_reader :x
-    attr_reader :y
     attr_reader :grid
     attr_reader :size
 end
 
-o = Grid.new(24)
-o.place(4,5)
+o = Grid.new(3)
+o.place(1,2)
 o.grid.each do |v|
     p v
 end
-p o.grid[6][10]
+p o.grid[1][2]
