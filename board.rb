@@ -1,14 +1,27 @@
 require_relative "ship.rb"
-class Grid
-    def initialize(size = 12)
-        x = Array.new(size, Array.new(size, ""))
-        x.each do |v|
-            p v
-        end
-    end
+class Place
+    def initialize(x, y)
+      @cord = [x, y]
 
-    attr_reader :size
-    attr_reader :x
+    end
+    attr_reader :cord
 end
 
-Grid.new(24)
+class Grid < Place
+    def initialize(size = 12)
+        @grid = Array.new(size, Array.new(size, ""))
+    end
+
+    def place(x, y)
+        ship = Place.new(x, y)
+        @grid[ship.cord[0]][ship.cord[1]] = ship
+    end
+    attr_reader :grid
+    attr_reader :size
+end
+
+o = Grid.new(24)
+o.place(4,2)
+o.grid.each do |v|
+    p v
+end
