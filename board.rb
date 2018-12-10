@@ -4,6 +4,7 @@ require_relative "cell.rb"
 class Grid < Cell
     def initialize(size = 12)
         @grid = Array.new(size) {Array.new(size, Cell.new)}
+        @end_point = size - 1
     end
 
 
@@ -13,13 +14,18 @@ class Grid < Cell
     # end
     attr_reader :grid
     attr_reader :size
+    attr_reader :end_point
 end
 
-o = Grid.new(3)
-o.grid[0][0].place(Ship.new(2,"river raft lol")).take_a_hit()
+o = Grid.new()
+o.grid[5][2].place(Ship.new(2,"Ubot"))
 o.grid.each do |v|
-    v.each do |k|
-        p k
+    v.each_with_index do |k,i|
+        if i == o.end_point
+            print "|#{k.to_s}| \n"
+        else
+            print "|#{k.to_s}|"
+        end
     end
 end
-print o.grid[0][0].content.to_s
+print o.grid[2][2].content.to_s

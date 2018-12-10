@@ -8,7 +8,7 @@ class Cell < Ship
     def if_hit()
         if @content =="water"
             @status =  "missed"
-        elsif @content != "water"
+        elsif @content == ship
            @status = ship.take_a_hit()
         end
     end
@@ -18,8 +18,9 @@ class Cell < Ship
     end
 
     def to_s()
-        @content
+        @content == "water" ? @content : @content.name
     end
+
 
 
     attr_reader :coordinates

@@ -21,11 +21,10 @@ class Ship
         else
             return "You hit a ship!"
         end
-
-        # if @hit_count == @size
-        #     @ship = ""
-        # end
     end
+
+
+
     attr_reader :ship
     attr_reader :size
     attr_reader :name
