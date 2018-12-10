@@ -9,7 +9,7 @@ class Board < Minitest::Test
 
     def test_that_the_grid_is_an_array
         x = Grid.new
-        assert_equal(Array, x.class)
+        assert_equal(Grid, x.class)
     end
     
 
