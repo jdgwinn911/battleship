@@ -3,6 +3,7 @@ class Ship
         @size = size
         @name = name
         @hit_count = 0
+        @boat = boat
     end
 
     def type_of_ship()
@@ -21,6 +22,7 @@ class Ship
             return "You hit a ship!"
         end
     end
+    attr_reader :boat
     attr_reader :size
     attr_reader :name
     attr_reader :hit_count

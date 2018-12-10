@@ -1,22 +1,25 @@
 require_relative "ship.rb"
 require_relative "cell.rb"
 
-class Grid 
+class Grid < Cell
     def initialize(size = 12)
-        @grid = Array.new(size) {Array.new(size, "")}
+        @grid = Array.new(size) {Array.new(size, Cell.new)}
     end
 
-    def place(x, y)
-        ship = "ship"
-        @grid[x][y] = ship
-    end
+
+    # def place(x, y)
+    #     ship = "ship"
+    #     @grid[x][y] = ship
+    # end
     attr_reader :grid
     attr_reader :size
 end
 
 o = Grid.new(3)
-o.place(1,2)
+o.grid[0][0].place(Ship.new(1,"Poopboat"))
 o.grid.each do |v|
-    p v
+    v.each do |k|
+        p k
+    end
 end
-p o.grid[1][2]
+print o.grid[0][0].content.to_s
