@@ -16,7 +16,7 @@ class Grid < Cell
 end
 
 o = Grid.new(3)
-o.grid[0][0].place(Ship.new(1,"Poopboat"))
+o.grid[0][0].place(Ship.new(2,"river raft lol")).take_a_hit()
 o.grid.each do |v|
     v.each do |k|
         p k
