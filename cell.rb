@@ -1,8 +1,9 @@
 require_relative "ship.rb"
-class Cell < Ship
+class Cell 
     def initialize()
         @status = nil
         @content = "water" 
+        @size = size 
     end
 
     def if_hit()
@@ -13,16 +14,14 @@ class Cell < Ship
         end
     end
 
-    def place(ship)
+    def place_on_cell(ship, direction)
         @content = ship
     end
 
     def to_s()
         @content == "water" ? @content : @content.name
     end
-
-
-
+    attr_reader :size
     attr_reader :coordinates
     attr_reader :content
     attr_reader :status

@@ -1,3 +1,4 @@
+
 class Ship
     def initialize(size, name)
         @size = size
