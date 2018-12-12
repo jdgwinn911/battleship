@@ -13,8 +13,7 @@ class Grid < Cell
     attr_reader :end_point
 end
 
-
-o = Grid.new()
+o = Grid.new(24)
 counter = 1 
 letters = 
 ('A'..'Z').to_a
