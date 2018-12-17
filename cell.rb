@@ -14,6 +14,11 @@ class Cell
         end
     end
 
+    def take()
+        @content = "ship"
+        @status = "taken"
+    end
+
     def content()
         @content
 

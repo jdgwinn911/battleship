@@ -4,16 +4,26 @@ require_relative "cell.rb"
 class Grid < Cell
     def initialize(size = 12)
         @grid = Array.new(size) {Array.new(size) {Cell.new}}
-        @end_point = size - 1
+        # @end_point = size - 1
     end
 
-    def place_ship()
+    def place_ship(ship, row, col, pos)
+        ship.size.times do 
+            if pos == "horizontal"
+                self.grid[row][col].take()
+                col += 1
+            else
+                self.grid[row][col].take()
+                row += 1
+            end
+        end
+                
     end
 
     attr_reader :start_point
     attr_reader :grid
     attr_reader :size
-    attr_reader :end_point
+    attr_reader :pos
 end
 
 # o = Grid.new(36)
