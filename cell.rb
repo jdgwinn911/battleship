@@ -14,8 +14,8 @@ class Cell
         end
     end
 
-    def take()
-        @content = "ship"
+    def take(ship)
+        @content = ship
         @status = "taken"
     end
 
