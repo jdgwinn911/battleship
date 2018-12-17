@@ -26,9 +26,9 @@ class Grid < Cell
 
     def check_location(ship, row, col, pos)
         if pos == "horizontal"
-            col + ship.size > grid.length ? err() : place_ship(ship, row, col, pos)
+            col + ship.size < grid.length && (col < grid.length && row < grid.length) ? place_ship(ship, row, col, pos) : err()
         elsif pos == "vertical"
-            row + ship.size > grid.length ? err() : place_ship(ship, row, col, pos)
+            row + ship.size < grid.length && (col < grid.length && row < grid.length) ? place_ship(ship, row, col, pos) : err()
         else 
             err()
         end
@@ -44,36 +44,36 @@ class Grid < Cell
 end
 
 
-o = Grid.new(36)
-p o.check_location(Ship.new(5,"Bot"), 4, 35, "vertical")
-countertop = 0
-letters = ('A'..'Z').to_a
-print "  "
+# o = Grid.new(36)
+# p o.check_location(Ship.new(5,"Bot"), 4, 35, "vertical")
+# countertop = 0
+# letters = ('A'..'Z').to_a
+# print "  "
 
 
-o.grid.each_with_index do |v, i|
-    if countertop < 10
-    print "  #{countertop}"
-    countertop += 1
-    else print " #{countertop}"
-        countertop += 1
-    end
-end
+# o.grid.each_with_index do |v, i|
+#     if countertop < 10
+#     print "  #{countertop}"
+#     countertop += 1
+#     else print " #{countertop}"
+#         countertop += 1
+#     end
+# end
 
-puts "\n"
-counter = 0
+# puts "\n"
+# counter = 0
 
-o.grid.each_with_index do |v, i|
-    v.each_with_index do |k, i|
-        if i == 0 
-            print " #{counter} #{k.to_s}"
-            counter += 1   
-        elsif i == o.end_point
-            print "#{k.to_s} \n"
-        else
-            print "#{k.to_s}"
-        end
-    end
-end
+# o.grid.each_with_index do |v, i|
+#     v.each_with_index do |k, i|
+#         if i == 0 
+#             print " #{counter} #{k.to_s}"
+#             counter += 1   
+#         elsif i == o.end_point
+#             print "#{k.to_s} \n"
+#         else
+#             print "#{k.to_s}"
+#         end
+#     end
+# end
 
-# print o.grid[2][2].content.to_s
+# # print o.grid[2][2].content.to_s
