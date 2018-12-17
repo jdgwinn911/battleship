@@ -20,6 +20,22 @@ class Grid < Cell
                 
     end
 
+    def err()
+        return "invalid placement"
+    end
+
+    def check_location(ship, row, col, pos)
+        if pos == "horizontal"
+            col + ship.size > grid.length ? err() : place_ship(ship, row, col, pos)
+        elsif pos == "vertical"
+            row + ship.size > grid.length ? err() : place_ship(ship, row, col, pos)
+        else 
+            err()
+        end
+            
+    end
+
+
     attr_reader :start_point
     attr_reader :grid
     attr_reader :size
@@ -29,7 +45,7 @@ end
 
 
 o = Grid.new(36)
-o.place_ship(Ship.new(5,"Bot"), 1, 34, "horizontal")
+p o.check_location(Ship.new(5,"Bot"), 4, 35, "vertical")
 countertop = 0
 letters = ('A'..'Z').to_a
 print "  "
