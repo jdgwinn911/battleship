@@ -14,16 +14,8 @@ class Cell
         end
     end
 
-    def place_on_cell(ship)
-        @content = ship
-        # if direction == "up"
-        #     size[1] + 1
-        # elsif direction == "down"
-        #     size[0] - 1
-        # elsif direction == "left"
-        #     size[-1] - 1
-        # elsif direction == "right"
-        # end
+    def content()
+        @content
 
     end
 

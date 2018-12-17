@@ -11,6 +11,12 @@ class Board < Minitest::Test
         x = Grid.new
         assert_equal(Grid, x.class)
     end
+
+    def test_that_ship_can_be_placed
+        o = Grid.new
+        o.place_ship()
+        assert_equal("boat", o.grid[1][2].content())
+    end
     
 
 end
