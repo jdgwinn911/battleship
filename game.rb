@@ -48,6 +48,16 @@ def begin_game(o)
     intro.each_value do |v|
         p v
     end
+
+    puts "What row would you want to place the ships?"
+    replyrow = gets.chomp.to_i
+    puts "What column would you want to place the ship?"
+    replycol = gets.chomp.to_i
+    puts "would you like to place the ship vertical or horizontal?"
+    replyvert = gets.chomp
+    o.check_location(Ship.new(5,"Bot"), replyrow, replycol, replyvert)
+    show_board(o)
+    
 end
 
 
