@@ -35,6 +35,9 @@ class Grid < Cell
             
     end
 
+    def check_spot(ship, row, col, pos)
+    end
+
 
     attr_reader :start_point
     attr_reader :grid
