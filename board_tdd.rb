@@ -46,7 +46,7 @@ class Board < Minitest::Test
         row = 2
         col = 2 
         o.place_ship(Ship.new(4, "battleship"), row, col, "vertical")
-        assert_equal("no ship on ship violence!", o.check_spot(Ship.new(4, "battleship"), row, 7, "vertical"))
+        assert_equal("no ship on ship violence!", o.check_spot(Ship.new(4, "battleship"), row, col, "vertical"))
     end
 
 end

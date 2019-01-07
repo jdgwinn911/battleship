@@ -1,7 +1,7 @@
 require_relative "ship.rb"
 class Cell 
     def initialize()
-        @status = nil
+        @status = "open"
         @content = "(-)" 
         @size = size 
     end

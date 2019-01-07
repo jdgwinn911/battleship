@@ -26,9 +26,9 @@ class Grid < Cell
 
     def check_location(ship, row, col, pos)
         if pos == "horizontal"
-            col + ship.size < grid.length && (col < grid.length && row < grid.length) ? place_ship(ship, row, col, pos) : err()
+            col + ship.size < grid.length && (col < grid.length && row < grid.length) ? check_spot(ship, row, col, pos) : err()
         elsif pos == "vertical"
-            row + ship.size < grid.length && (col < grid.length && row < grid.length) ? place_ship(ship, row, col, pos) : err()
+            row + ship.size < grid.length && (col < grid.length && row < grid.length) ? check_spot(ship, row, col, pos) : err()
         else 
             err()
         end
@@ -36,6 +36,21 @@ class Grid < Cell
     end
 
     def check_spot(ship, row, col, pos)
+        ship.size.times do 
+            if self.grid[row][col].status != "open"
+                return "no ship on ship violence!"
+            elsif pos == "horizontal"
+                col += 1
+            else
+                row += 1
+            end 
+        end
+        if pos == "horizontal"
+            col -= ship.size
+        else
+            row -= ship.size
+        end
+        place_ship(ship, row, col, pos)
     end
 
 

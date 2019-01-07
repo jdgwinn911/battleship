@@ -58,7 +58,6 @@ def begin_game(o)
     o.check_location(Ship.new(5,"Bot"), replyrow, replycol, replyvert)
     show_board(o)
     
-    
 end
 
 
