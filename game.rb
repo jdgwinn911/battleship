@@ -55,7 +55,15 @@ def begin_game(o)
     replycol = gets.chomp.to_i
     puts "would you like to place the ship vertical or horizontal?"
     replyvert = gets.chomp
-    o.check_location(Ship.new(5,"Bot"), replyrow, replycol, replyvert)
+    puts o.mastor_funk(Ship.new(3,"Bot"), replyrow, replycol, replyvert)
+    show_board(o)
+    puts "what row would you like to place the other ship?"
+    replynewship = gets.chomp.to_i
+    puts "what column would you like to place you newship"
+    replycolumnship = gets.chomp.to_i
+    puts "horizontal or vertical?"
+    rplyagain = gets.chomp
+    puts o.mastor_funk(Ship.new(3,"Bot"), replynewship, replycolumnship, rplyagain)
     show_board(o)
     
 end
@@ -63,7 +71,7 @@ end
 
 begin_game(o)
 
-# p o.check_location(Ship.new(5,"Bot"), 35, 35, "vertical")
+# p o.mastor_funk(Ship.new(5,"Bot"), 35, 35, "vertical")
 
 
 # print o.grid[2][2].content.to_s
