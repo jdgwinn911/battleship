@@ -49,22 +49,35 @@ def begin_game(o)
         p v
     end
 
-    puts "What row would you want to place the ships?"
+    puts "What row would you want to place the carrier?"
     replyrow = gets.chomp.to_i
-    puts "What column would you want to place the ship?"
+    puts "What column would you want to place the carrier?"
     replycol = gets.chomp.to_i
     puts "would you like to place the ship vertical or horizontal?"
     replyvert = gets.chomp
-    puts o.mastor_funk(Ship.new(3,"Bot"), replyrow, replycol, replyvert)
+    puts o.mastor_funk(Ship.new(5,"(C)"), replyrow, replycol, replyvert)
     show_board(o)
-    puts "what row would you like to place the other ship?"
-    replynewship = gets.chomp.to_i
-    puts "what column would you like to place you newship"
-    replycolumnship = gets.chomp.to_i
+
+    puts "what row would you like to place the battleship?"
+    replyrow = gets.chomp.to_i
+    puts "what column would you like to place you battleship?"
+    replycol = gets.chomp.to_i
     puts "horizontal or vertical?"
-    rplyagain = gets.chomp
-    puts o.mastor_funk(Ship.new(3,"Bot"), replynewship, replycolumnship, rplyagain)
+    replyvert = gets.chomp
+    puts o.mastor_funk(Ship.new(4,"(B)"), replyrow, replycol, replyvert)
     show_board(o)
+
+    puts "what row would you want to place the Cruiser?"
+    replyrow = gets.chomp.to_i
+    puts "what column would you like to place you Cruiser?"
+    replycol = gets.chomp.to_i
+    puts "would you like to place the ship vertical or horizontal?"
+    replyvert = gets.chomp
+    puts o.mastor_funk(Ship.new(3,"(c)"), replyrow, replycol, replyvert)
+    show_board(o)
+
+    
+
     
 end
 

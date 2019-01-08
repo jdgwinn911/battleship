@@ -21,7 +21,7 @@ class Grid < Cell
     end
 
     def err()
-        return "invalid placement"
+        return "Invalid Placement!"
     end
 
     def check_location(ship, row, col, pos)
