@@ -3,6 +3,7 @@ require_relative "cell.rb"
 
 class Grid < Cell
     def initialize(size = 12)
+        @size = size
         @grid = Array.new(size) {Array.new(size) {Cell.new}}
         @end_point = size - 1
     end
@@ -57,9 +58,7 @@ class Grid < Cell
 
     end
 
-    def firing()
-
-    end
+    
 
 
     attr_reader :start_point
