@@ -12,6 +12,11 @@ class Players < Minitest::Test
         assert_equal(Player, name.class)
     end
 
+    def test_that_player_has_board
+        bored = Player.new("Demo")
+        assert_equal(12, bored.size)
+    end
+
 
 end
 
