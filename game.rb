@@ -76,6 +76,19 @@ def begin_game(o)
     puts o.mastor_funk(Ship.new(3,"(c)"), replyrow, replycol, replyvert)
     show_board(o)
 
+    puts "what row would you want to place the Submarine?"
+    replyrow = gets.chomp.to_i
+    puts "what column would you like to place you Submarine?"
+    replycol = gets.chomp.to_i
+    puts "would you like to place the ship vertically or horizontally?"
+    replyvert = gets.chomp
+    puts o.mastor_funk(Ship.new(2,"(S)"), replyrow, replycol, replyvert)
+    show_board(o)
+
+
+
+
+
     
 
     

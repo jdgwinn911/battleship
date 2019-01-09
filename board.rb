@@ -51,9 +51,14 @@ class Grid < Cell
     def mastor_funk(ship, row, col, pos)
         if check_location(ship, row, col, pos) == true && check_spot(ship, row, col, pos) == true
             place_ship(ship, row, col, pos)
-        else
-            return err()
+        else 
+            err()
         end
+
+    end
+
+    def firing()
+
     end
 
 

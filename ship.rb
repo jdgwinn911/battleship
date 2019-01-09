@@ -24,8 +24,6 @@ class Ship
         end
     end
 
-
-
     attr_reader :ship
     attr_reader :size
     attr_reader :name
