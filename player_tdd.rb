@@ -24,7 +24,7 @@ class Players < Minitest::Test
 
     def test_that_name_is_string
         temp = Player.new("Demogorgon")
-        assert_equal("", temp.name)
+        assert_equal("Demogorgon", temp.name)
     end
 
 
