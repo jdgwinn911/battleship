@@ -2,7 +2,6 @@ require_relative "ship.rb"
 require_relative "cell.rb"
 require_relative "board.rb"
 puts "what level of difficulty do you choose? easy[e], hard[h], difficult[d]"
-
 answer = gets.chomp
 system('cls')
 if answer == "e"
@@ -15,8 +14,6 @@ else
    o = Grid.new(36)
    m = Grid.new(36)
 end
-
-
 
 def show_board(o)
     countertop = 0
@@ -45,7 +42,6 @@ def show_board(o)
     end
 end
 
-
 def show_2nd_board(m)
     countertop = 0
     print "  "
@@ -72,8 +68,6 @@ def show_2nd_board(m)
         end
     end
 end
-
-
 
 def begin_game(o, m)
     intro = {ship1: "Carrier = 5",
@@ -130,6 +124,11 @@ def begin_game(o, m)
     puts o.mastor_funk(Ship.new(2,"(S)"), replyrow, replycol, replyvert)
     show_2nd_board(m)
     show_board(o)
+
+    m.mastor_funk(Ship.new(5,"(C)"),replycol, replycol, replyvert)
+        
+
+
 
 
 

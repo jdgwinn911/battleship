@@ -57,12 +57,6 @@ class Grid < Cell
         end
 
     end
-
-    def opponent_targeting()
-
-    end
-
-
     
 
 

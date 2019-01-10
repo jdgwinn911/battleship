@@ -4,7 +4,7 @@ require_relative "ship.rb"
 require_relative "player.rb"
 class Computer
     def initialize(name = "Computer")
-        @name = name
+        # @name = name
         @board = Grid.new()
         @enemy_board = Grid.new()
         @carrier = Ship.new(5,:Carrier)
@@ -14,9 +14,9 @@ class Computer
         @size = @board.size
     end
 
-    def to_s()
-        @name
-    end
+    # def to_s()
+    #     @name
+    # end
 
 
 
