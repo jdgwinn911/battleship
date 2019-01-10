@@ -13,8 +13,13 @@ class Players < Minitest::Test
     end
 
     def test_that_player_has_board
-        bored = Player.new("Demo")
-        assert_equal(12, bored.size)
+        board = Player.new("Demo")
+        assert_equal(12, board.size)
+    end
+
+    def test_that_enemy_has_board
+        enemy_board = Player.new("Computer")
+        assert_equal(12, enemy_board.size)
     end
 
 
