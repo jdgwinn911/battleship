@@ -12,6 +12,6 @@ class Player
         @submarine = Ship.new(2,:Submarine)
         @size = @board.size
     end
-
+    attr_reader :carrier
     attr_reader :size
 end

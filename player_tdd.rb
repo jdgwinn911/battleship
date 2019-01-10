@@ -22,6 +22,11 @@ class Players < Minitest::Test
         assert_equal(12, enemy_board.size)
     end
 
+    def test_that_player_has_ships
+        play_ships = Player.new("Demo")
+        assert_equal("", play_ships.carrier)
+    end
+
 
 end
 
