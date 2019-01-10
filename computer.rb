@@ -1,8 +1,9 @@
 require_relative "board.rb"
 require_relative "cell.rb"
 require_relative "ship.rb"
-class Player
-    def initialize(name)
+require_relative "player.rb"
+class Computer
+    def initialize(name = "Computer")
         @name = name
         @board = Grid.new()
         @enemy_board = Grid.new()
@@ -16,6 +17,8 @@ class Player
     def to_s()
         @name
     end
+
+
 
 
 

@@ -2,14 +2,21 @@ require_relative "ship.rb"
 require_relative "cell.rb"
 require_relative "board.rb"
 puts "what level of difficulty do you choose? easy[e], hard[h], difficult[d]"
+
 answer = gets.chomp
+system('cls')
 if answer == "e"
-   o = Grid.new(12)
+   o = Grid.new(12) 
+   m = Grid.new(12)
 elsif answer == "h"
-   o = Grid.new(24)
+   o = Grid.new(24) 
+   m = Grid.new(24)
 else
    o = Grid.new(36)
+   m = Grid.new(36)
 end
+
+
 
 def show_board(o)
     countertop = 0
@@ -38,12 +45,43 @@ def show_board(o)
     end
 end
 
-def begin_game(o)
+
+def show_2nd_board(m)
+    countertop = 0
+    print "  "
+    m.grid.each_with_index do |v, i|
+        if countertop < 10
+        print "  #{countertop}"
+        countertop += 1
+        else print " #{countertop}"
+            countertop += 1
+        end
+    end
+    puts "\n"
+    counter = 0
+    m.grid.each_with_index do |v, i|
+        v.each_with_index do |k, i|
+            if i == 0 
+                print " #{counter} #{k.to_s}"
+                counter += 1   
+            elsif i == m.end_point
+                print "#{k.to_s} \n"
+            else
+                print "#{k.to_s}"
+            end
+        end
+    end
+end
+
+
+
+def begin_game(o, m)
     intro = {ship1: "Carrier = 5",
         ship2: "Battleship = 4",
         ship3: "Cruiser = 3",
         ship4: "Submarine = 2"
     } 
+    show_2nd_board(m)
     show_board(o)
     intro.each_value do |v|
         p v
@@ -55,7 +93,9 @@ def begin_game(o)
     replycol = gets.chomp.to_i
     puts "would you like to place the ship vertical or horizontal?"
     replyvert = gets.chomp
+    system('cls')
     puts o.mastor_funk(Ship.new(5,"(C)"), replyrow, replycol, replyvert)
+    show_2nd_board(m)
     show_board(o)
 
     puts "what row would you like to place the battleship?"
@@ -64,7 +104,9 @@ def begin_game(o)
     replycol = gets.chomp.to_i
     puts "horizontal or vertical?"
     replyvert = gets.chomp
+    system('cls')
     puts o.mastor_funk(Ship.new(4,"(B)"), replyrow, replycol, replyvert)
+    show_2nd_board(m)
     show_board(o)
 
     puts "what row would you want to place the Cruiser?"
@@ -73,7 +115,9 @@ def begin_game(o)
     replycol = gets.chomp.to_i
     puts "would you like to place the ship vertical or horizontal?"
     replyvert = gets.chomp
+    system('cls')
     puts o.mastor_funk(Ship.new(3,"(c)"), replyrow, replycol, replyvert)
+    show_2nd_board(m)
     show_board(o)
 
     puts "what row would you want to place the Submarine?"
@@ -82,8 +126,12 @@ def begin_game(o)
     replycol = gets.chomp.to_i
     puts "would you like to place the ship vertically or horizontally?"
     replyvert = gets.chomp
+    system('cls')
     puts o.mastor_funk(Ship.new(2,"(S)"), replyrow, replycol, replyvert)
+    show_2nd_board(m)
     show_board(o)
+
+
 
 
 
@@ -95,7 +143,7 @@ def begin_game(o)
 end
 
 
-begin_game(o)
+begin_game(o, m)
 
 # p o.mastor_funk(Ship.new(5,"Bot"), 35, 35, "vertical")
 
