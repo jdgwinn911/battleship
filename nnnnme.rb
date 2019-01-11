@@ -19,17 +19,22 @@ class Enemy
         end
     end
 
-    def deploy_opp_ships()
-        counter = 0 
-        while true
-            spots_2_choose = @coordinates
-            hold_it = spots_2_choose.sample
-            pos = [hor, vert]
-            master(@ships(counter))
-        end
-            
+    def take_turn()
+        counter 
 
     end
+
+    # def deploy_opp_ships()
+    #     counter = 0 
+    #     while true
+    #         spots_2_choose = @coordinates
+    #         hold_it = spots_2_choose.sample
+    #         pos = [hor, vert]
+    #         master(@ships(counter))
+    #     end
+            
+
+    # end
 
     attr_reader :coordinates
     attr_reader :ships
