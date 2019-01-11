@@ -27,10 +27,10 @@ class Players < Minitest::Test
         assert_equal("Demogorgon", temp.name)
     end
 
-    def test_that_players_have_turns
+    def test_that_player_has_ships
         temp = Player.new("Demo")
-        assert_equal("", temp.take_turn())
-
+        assert_equal("", temp.carrier.size)
+    end
 
 end
 

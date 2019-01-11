@@ -26,6 +26,7 @@ class Enemy
             hold_it = spots_2_choose.sample
             pos = [hor, vert]
             master(@ships(counter))
+        end
             
 
     end
