@@ -29,7 +29,7 @@ class Players < Minitest::Test
 
     def test_that_player_has_ships
         temp = Player.new("Demo")
-        assert_equal("", temp.carrier.size)
+        assert_equal(5, temp.carrier.size)
     end
 
 end
