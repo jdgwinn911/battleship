@@ -49,6 +49,13 @@ class Board < Minitest::Test
         assert_equal("Invalid Placement!", o.mastor_funk(Ship.new(4, "battleship"), row, col, "vertical"))
     end
 
+    def test_that_enemy_cell_has_content
+        m = Grid.new(12, "ai")
+        assert_equal("",m.grid[2][4].class )
+    end
+
+
+
     
 
 

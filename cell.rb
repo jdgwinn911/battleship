@@ -32,3 +32,5 @@ class Cell
     attr_reader :content
     attr_reader :status
 end
+
+

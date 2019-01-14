@@ -1,0 +1,76 @@
+require_relative "ship.rb"
+require_relative "board.rb"
+
+
+class Enemy
+    def initialize(grid, opp_grid)
+        @grid = grid
+        num = []
+        @coordinates = []
+        @ships = [carrier = Ship.new(5, "(C)"), battleship = Ship.new(4, "(B)"), cruiser = Ship.new(3, "(c)"), submarine = Ship.new(2, "(S)")]
+        counter = 0
+        @grid.size.times do 
+            num << counter
+            counter += 1
+        end
+        num.each do |row|
+            num.each do |col|
+                @coordinates << [row, col]
+            end
+        end
+    end
+
+    def deploy_opp_ships()
+        counter = 0 
+        4.times do 
+            while true
+                spots_2_choose = @coordinates
+                hold_it = spots_2_choose.sample
+                pos = ["horizontal", "vertical"]
+                if @grid.mastor_funk(@ships[counter], hold_it[0], hold_it[1], pos.sample) != "Invalid Placement!"
+                    counter += 1
+                    spots_2_choose.delete(hold_it)
+                    break
+                end
+            end
+        end
+            
+
+    end
+    attr_reader :coordinates
+    attr_reader :ships
+end
+#  o = Grid.new()
+# temp = Enemy.new(o)
+# # p temp.coordinates
+
+# temp.deploy_opp_ships()
+# def show_board(o)
+#     countertop = 0
+#     print "  "
+#     o.grid.each_with_index do |v, i|
+#         if countertop < 10
+#         print "  #{countertop}"
+#         countertop += 1
+#         else print " #{countertop}"
+#             countertop += 1
+#         end
+#     end
+#     puts "\n"
+#     counter = 0
+#     o.grid.each_with_index do |v, i|
+#         v.each_with_index do |k, i|
+#             if i == 0 
+#                 print " #{counter} #{k.to_s}"
+#                 counter += 1   
+#             elsif i == o.end_point
+#                 print "#{k.to_s} \n"
+#             else
+#                 print "#{k.to_s}"
+#             end
+#         end
+#     end
+# end
+
+# show_board(o)
+

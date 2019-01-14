@@ -1,10 +1,15 @@
 require_relative "ship.rb"
 require_relative "cell.rb"
+require_relative "enemy_cell.rb"
 
 class Grid < Cell
-    def initialize(size = 12)
+    def initialize(size = 12, cell)
+        if cell == "player"
+            @grid = Array.new(size) {Array.new(size) {Cell.new}}
+        elsif cell == "ai"
+            @grid = Array.new(size) {Array.new(size) {Enemycell.new}}
+        end
         @size = size
-        @grid = Array.new(size) {Array.new(size) {Cell.new}}
         @end_point = size - 1
     end
 

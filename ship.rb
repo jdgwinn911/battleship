@@ -29,3 +29,6 @@ class Ship
     attr_reader :name
     attr_reader :hit_count
 end
+
+
+#make enemy cell, that dirives from cell, only difference, if hit, display x if content == ship, else o if content == '(-)'
