@@ -15,7 +15,7 @@ class Cells < Minitest::Test
 
     def test_that_cell_status_changes_when_hit
         c = Cell.new
-        assert_equal("O", c.if_hit())
+        assert_equal("missed", c.if_hit())
     end
 
 
