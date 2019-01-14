@@ -18,3 +18,7 @@ class Enemycell < Cell
     attr_reader :content
     attr_reader :status
 end
+
+# "(-)"
+
+# @content == "(-)" ? @content : @content.name
