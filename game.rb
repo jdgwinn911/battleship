@@ -9,9 +9,9 @@ system('cls')
 if answer == "e"
    o = Grid.new(12, "player"); m = Grid.new(12, "ai"); ai = Enemy.new(m, o)
 elsif answer == "h"
-   o = Grid.new(24,Cell.new); m = Grid.new(24, Enemycell.new); ai = Enemy.new(m, o)
+   o = Grid.new(24,"player"); m = Grid.new(24, "ai"); ai = Enemy.new(m, o)
 else
-   o = Grid.new(36, Cell.new); m = Grid.new(36, Enemycell.new); ai = Enemy.new(m, o)
+   o = Grid.new(36, "player"); m = Grid.new(36, "ai"); ai = Enemy.new(m, o)
 end
 
 def show_board(o)

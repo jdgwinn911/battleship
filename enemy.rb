@@ -1,5 +1,6 @@
 require_relative "ship.rb"
 require_relative "board.rb"
+require_relative "enemy_cell.rb"
 
 
 class Enemy
@@ -33,10 +34,17 @@ class Enemy
                     break
                 end
             end
-        end
-            
+        end 
 
     end
+
+    def hit_o_grid()
+        @spots_to_fire = @coordinates
+        @spots = spots_to_fire.sample
+
+    end
+    attr_reader :spots
+    attr_reader :spots_to_fire
     attr_reader :coordinates
     attr_reader :ships
 end
