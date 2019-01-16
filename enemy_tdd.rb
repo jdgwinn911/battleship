@@ -8,7 +8,7 @@ class Opponent < Minitest::Test
         o = Grid.new(12)
         q = Enemy.new(g, o)
         q.hit_o_grid()
-        assert_equal("", q.spots_to_fire.class)
+        assert_equal(Array, q.spots_to_fire.class)
     end
 
 end
