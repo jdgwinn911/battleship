@@ -82,6 +82,12 @@ def begin_game(o, m, ai)
     puts o.mastor_funk(Ship.new(2,"(S)"), replyrow, replycol, replyvert)
     ai.deploy_opp_ships()
     show_opp_board(m);  show_board(o)
+    s = {5 => "C"}
+
+    puts "what row would you like to fire at?"; replyrow = gets.chomp.to_i
+    puts"what column would you like to fire at?"; replycol = gets.chomp.to_i
+    # puts o.if_hit()
+    puts ai.hit_o_grid()
 
     
         
@@ -98,7 +104,6 @@ def begin_game(o, m, ai)
 
     
 end
-
 
 begin_game(o, m, ai)
 

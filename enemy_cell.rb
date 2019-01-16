@@ -3,7 +3,7 @@ require_relative "ship.rb"
 class Enemycell < Cell
     def if_hit()
         if @content == ship
-            @status =  "X"
+            @status =  "X" 
         elsif @content == "(-)"
            @status = "O"
         end

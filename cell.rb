@@ -4,6 +4,7 @@ class Cell
         @status = "open"
         @content = "(-)" 
         @size = size 
+        @ship = ship
     end
 
     def if_hit()
@@ -21,12 +22,12 @@ class Cell
 
     def content()
         @content
-
     end
 
     def to_s()
         @content == "(-)" ? @content : @content.name
     end
+    attr_reader :ship
     attr_reader :size
     attr_reader :coordinates
     attr_reader :content

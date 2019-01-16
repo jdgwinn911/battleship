@@ -3,7 +3,7 @@ require_relative "board.rb"
 require_relative "enemy_cell.rb"
 
 
-class Enemy
+class Enemy < Enemycell
     def initialize(grid, opp_grid)
         @grid = grid
         num = []
@@ -41,6 +41,7 @@ class Enemy
     def hit_o_grid()
         @spots_to_fire = @coordinates
         @spots = spots_to_fire.sample
+        if_hit()
 
     end
     attr_reader :spots
