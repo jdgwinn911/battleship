@@ -94,11 +94,10 @@ def begin_game(o, m, ai)
     m.atk_cell(replyrow, replycol)
     system('cls')
     show_opp_board(m); show_board(o)
-    
+    system('cls')
     puts "now it's the computers turn"
     spot = o.pick_open_cell()
     o.atk_cell(spot[0], spot[1])
-    system('cls')
     show_opp_board(m); show_board(o)
 
 
