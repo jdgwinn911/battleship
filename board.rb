@@ -33,7 +33,6 @@ class Grid < Cell
     end
 
     def pick_open_cell()
-        p @grid
         open_spot = []
         @grid.each_with_index do |x, row|
             x.each_with_index do |y, col|
@@ -45,22 +44,6 @@ class Grid < Cell
         return open_spot.sample
     end
 
-
-    # def atk_my_cell(row, col)
-    #     spots = []
-    #     spots << @grid[row][col]
-    #     spots.sample
-    #     spots = spots.to_s.to_i
-    #     spots.if_hit()
-    # end
-
-    # def atk_my_cell(row, col)
-    #     my_brd_spots = []
-    #     my_brd_spots << @grid[row][col]
-    #     my_brd_spots.sample
-    #     my_brd_spots.if_hit()
-    # end
-    
 
     def err()
         return "Invalid Placement!"
@@ -108,37 +91,3 @@ class Grid < Cell
     attr_reader :end_point
 end
 
-
-# o = Grid.new(36)
-# p o.check_location(Ship.new(5,"Bot"), 4, 35, "vertical")
-# countertop = 0
-# letters = ('A'..'Z').to_a
-# print "  "
-
-
-# o.grid.each_with_index do |v, i|
-#     if countertop < 10
-#     print "  #{countertop}"
-#     countertop += 1
-#     else print " #{countertop}"
-#         countertop += 1
-#     end
-# end
-
-# puts "\n"
-# counter = 0
-
-# o.grid.each_with_index do |v, i|
-#     v.each_with_index do |k, i|
-#         if i == 0 
-#             print " #{counter} #{k.to_s}"
-#             counter += 1   
-#         elsif i == o.end_point
-#             print "#{k.to_s} \n"
-#         else
-#             print "#{k.to_s}"
-#         end
-#     end
-# end
-
-# # print o.grid[2][2].content.to_s

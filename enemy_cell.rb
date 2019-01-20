@@ -3,13 +3,9 @@ require_relative "ship.rb"
 class Enemycell < Cell
    
 
-    # def change_of_cell()
 
     
     def to_s()
-        # return "(-)"
-        
-           
         if @status == "open" || @status == "taken"
             return "(-)"
         end

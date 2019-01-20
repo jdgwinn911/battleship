@@ -30,8 +30,6 @@ class Cell
     end
 
     def to_s()
-        # @content == "(-)" ? @content : @content.name
-
         if @status == "open"
             return "(-)"
         elsif @status == "taken"

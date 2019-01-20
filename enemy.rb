@@ -38,47 +38,10 @@ class Enemy < Enemycell
 
     end
 
-    # def hit_o_grid(row, col)
-    #     @spots_to_fire = @coordinates
-    #     @spots = spots_to_fire.sample
-
-    # end
     attr_reader :spots
     attr_reader :spots_to_fire
     attr_reader :coordinates
     attr_reader :ships
 end
-#  o = Grid.new()
-# temp = Enemy.new(o)
-# # p temp.coordinates
 
-# temp.deploy_opp_ships()
-# def show_board(o)
-#     countertop = 0
-#     print "  "
-#     o.grid.each_with_index do |v, i|
-#         if countertop < 10
-#         print "  #{countertop}"
-#         countertop += 1
-#         else print " #{countertop}"
-#             countertop += 1
-#         end
-#     end
-#     puts "\n"
-#     counter = 0
-#     o.grid.each_with_index do |v, i|
-#         v.each_with_index do |k, i|
-#             if i == 0 
-#                 print " #{counter} #{k.to_s}"
-#                 counter += 1   
-#             elsif i == o.end_point
-#                 print "#{k.to_s} \n"
-#             else
-#                 print "#{k.to_s}"
-#             end
-#         end
-#     end
-# end
-
-# show_board(o)
 
