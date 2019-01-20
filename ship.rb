@@ -4,7 +4,6 @@ class Ship
         @size = size
         @name = name
         @hit_count = 0
-        @ship = ship
     end
 
     def type_of_ship()

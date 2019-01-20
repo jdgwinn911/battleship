@@ -38,12 +38,11 @@ class Enemy < Enemycell
 
     end
 
-    def hit_o_grid()
-        @spots_to_fire = @coordinates
-        @spots = spots_to_fire.sample
-        if_hit()
+    # def hit_o_grid(row, col)
+    #     @spots_to_fire = @coordinates
+    #     @spots = spots_to_fire.sample
 
-    end
+    # end
     attr_reader :spots
     attr_reader :spots_to_fire
     attr_reader :coordinates

@@ -22,9 +22,45 @@ class Grid < Cell
                 self.grid[row][col].take(ship)
                 row += 1
             end
+
         end
+
                 
     end
+
+    def atk_cell(row, col)
+        @grid[row][col].if_hit()
+    end
+
+    def pick_open_cell()
+        p @grid
+        open_spot = []
+        @grid.each_with_index do |x, row|
+            x.each_with_index do |y, col|
+                if y.content == "(-)"
+                    open_spot << [row, col]
+                end
+            end
+        end
+        return open_spot.sample
+    end
+
+
+    # def atk_my_cell(row, col)
+    #     spots = []
+    #     spots << @grid[row][col]
+    #     spots.sample
+    #     spots = spots.to_s.to_i
+    #     spots.if_hit()
+    # end
+
+    # def atk_my_cell(row, col)
+    #     my_brd_spots = []
+    #     my_brd_spots << @grid[row][col]
+    #     my_brd_spots.sample
+    #     my_brd_spots.if_hit()
+    # end
+    
 
     def err()
         return "Invalid Placement!"

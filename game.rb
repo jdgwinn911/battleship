@@ -46,6 +46,11 @@ def show_opp_board(m)
 end
 
 
+def random_enemy_atk()
+
+end
+
+
 def begin_game(o, m, ai)
     intro = {ship1: "Carrier = 5", ship2: "Battleship = 4", ship3: "Cruiser = 3", ship4: "Submarine = 2"} 
     show_opp_board(m); show_board(o)
@@ -82,12 +87,24 @@ def begin_game(o, m, ai)
     puts o.mastor_funk(Ship.new(2,"(S)"), replyrow, replycol, replyvert)
     ai.deploy_opp_ships()
     show_opp_board(m);  show_board(o)
-    s = {5 => "C"}
 
     puts "what row would you like to fire at?"; replyrow = gets.chomp.to_i
     puts"what column would you like to fire at?"; replycol = gets.chomp.to_i
     # puts o.if_hit()
-    puts ai.hit_o_grid()
+    m.atk_cell(replyrow, replycol)
+    system('cls')
+    show_opp_board(m); show_board(o)
+    
+    puts "now it's the computers turn"
+    spot = o.pick_open_cell()
+    o.atk_cell(spot[0], spot[1])
+    system('cls')
+    show_opp_board(m); show_board(o)
+
+
+
+     
+    
 
     
         

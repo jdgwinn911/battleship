@@ -1,18 +1,24 @@
 require_relative "cell.rb"
 require_relative "ship.rb"
 class Enemycell < Cell
-    def if_hit()
-        if @content == ship
-            @status =  "X" 
-        elsif @content == "(-)"
-           @status = "O"
-        end
-    end
+   
+
+    # def change_of_cell()
+
     
     def to_s()
-        return "(-)"
+        # return "(-)"
+        
+           
+        if @status == "open" || @status == "taken"
+            return "(-)"
+        end
+        "(#{@status})"
+
+        
     end
 
+    attr_reader :ship
     attr_reader :size
     attr_reader :coordinates
     attr_reader :content
