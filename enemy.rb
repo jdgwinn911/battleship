@@ -35,6 +35,9 @@ class Enemy < Enemycell
                 end
             end
         end 
+    end
+
+    def help_find()
 
     end
 

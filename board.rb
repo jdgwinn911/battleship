@@ -29,14 +29,19 @@ class Grid < Cell
     end
 
     def atk_cell(row, col)
-        @grid[row][col].if_hit()
+        if row < @size && col < @size && row >= 0 && col >= 0
+            @grid[row][col].if_hit()
+        else
+            return "invalid shot"
+        end
+
     end
 
     def pick_open_cell()
         open_spot = []
         @grid.each_with_index do |x, row|
             x.each_with_index do |y, col|
-                if y.content == "(-)"
+                if y.status == "open" || y.status == "taken"
                     open_spot << [row, col]
                 end
             end

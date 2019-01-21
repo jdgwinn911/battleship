@@ -46,109 +46,67 @@ def show_opp_board(m)
 end
 
 
-def random_enemy_atk()
+# def win_func(o, m)
+#     boards = [o, m]
+#     boards.each do |b|
 
-end
+#         b.grid.each do |row|
+#             row.each do |cell|
 
+
+# end
 
 def begin_game(o, m, ai)
-    intro = {ship1: "Carrier = 5", ship2: "Battleship = 4", ship3: "Cruiser = 3", ship4: "Submarine = 2"} 
+    intro = {ship1: "Carrier = 5", ship2: "Battleship = 4", ship3: "cruiser = 3", ship4: "Submarine = 2"} 
     show_opp_board(m); show_board(o)
     intro.each_value do |v|
         p v
     end
 
-    puts "What row would you want to place the carrier?"; replyrow = gets.chomp.to_i
-    puts "What column would you want to place the carrier?"; replycol = gets.chomp.to_i
-    puts "would you like to place the ship vertical or horizontal?"; replyvert = gets.chomp
-    system('cls')
-    puts o.mastor_funk(Ship.new(5,"(C)"), replyrow, replycol, replyvert)
-    show_opp_board(m); show_board(o)
-    
-
-    puts "what row would you like to place the battleship?"; replyrow = gets.chomp.to_i
-    puts "what column would you like to place you battleship?"; replycol = gets.chomp.to_i
-    puts "would you like to place the ship horizontal or vertical?"; replyvert = gets.chomp
-    system('cls')
-    puts o.mastor_funk(Ship.new(4,"(B)"), replyrow, replycol, replyvert)
-    show_opp_board(m); show_board(o)
-
-    puts "what row would you want to place the Cruiser?"; replyrow = gets.chomp.to_i
-    puts "what column would you like to place you Cruiser?"; replycol = gets.chomp.to_i
-    puts "would you like to place the ship vertical or horizontal?"; replyvert = gets.chomp
-    system('cls')
-    puts o.mastor_funk(Ship.new(3,"(c)"), replyrow, replycol, replyvert)
-    show_opp_board(m); show_board(o)
-
-    puts "what row would you want to place the Submarine?"; replyrow = gets.chomp.to_i
-    puts "what column would you like to place you Submarine?";  replycol = gets.chomp.to_i
-    puts "would you like to place the ship vertical or horizontal?"; replyvert = gets.chomp
-    system('cls')
-    puts o.mastor_funk(Ship.new(2,"(S)"), replyrow, replycol, replyvert)
+    intro.each do |k, v|
+        while true
+            puts "What row would you want to place the #{v}?"; replyrow = gets.chomp.to_i
+            puts "What column would you want to place the #{v}";replycol = gets.chomp.to_i
+            puts "would you like to place the ship vertical or horizontal?"; replyvert = gets.chomp
+            if o.mastor_funk(Ship.new(v[-1].to_i,"(#{v[0]})"), replyrow, replycol, replyvert) != "Invalid Placement!"
+                system('cls')
+                show_opp_board(m); show_board(o)
+                break
+            end
+        end
+    end
     ai.deploy_opp_ships()
-    show_opp_board(m);  show_board(o)
-
-    puts "what row would you like to fire at?"; replyrow = gets.chomp.to_i
-    puts"what column would you like to fire at?"; replycol = gets.chomp.to_i
-    # puts o.if_hit()
-    m.atk_cell(replyrow, replycol)
-    system('cls')
-    show_opp_board(m); show_board(o)
-
-    spot = o.pick_open_cell()
-    o.atk_cell(spot[0], spot[1])
-    system('cls')
-    
-    show_opp_board(m); show_board(o)
-    puts "look at your grid! the enemy has fired"
-    puts "--------------------------------------"
-    puts "now your turn!"
-    puts "what row would you like to fire at?"; replyrow = gets.chomp.to_i
-    puts"what column would you like to fire at?"; replycol = gets.chomp.to_i
-    m.atk_cell(replyrow, replycol)
-    system('cls')
-    show_opp_board(m); show_board(o)
-
-    spot = o.pick_open_cell()
-    o.atk_cell(spot[0], spot[1])
-    system('cls')
-    
-    show_opp_board(m); show_board(o)
-    puts "look at your grid! the enemy has fired"
-    puts "--------------------------------------"
-    puts "now your turn!"
-    puts "what row would you like to fire at?"; replyrow = gets.chomp.to_i
-    puts"what column would you like to fire at?"; replycol = gets.chomp.to_i
-    m.atk_cell(replyrow, replycol)
-    system('cls')
-    show_opp_board(m); show_board(o)
 
 
+    o.grid.each do |row|
+        row.each do |cell|
+            while true
+                puts "what row would you like to fire at?"; replyrow = gets.chomp.to_i
+                puts "what column would you like to fire at?"; replycol = gets.chomp.to_i
+                if m.atk_cell(replyrow, replycol) != 'invalid shot'
+                    break
+                end
+            end
+            system('cls')
+            show_opp_board(m); show_board(o)
+
+            spot = o.pick_open_cell()
+            o.atk_cell(spot[0], spot[1])
+            system('cls')
+            show_opp_board(m); show_board(o)
+
+            puts "look at your grid! the enemy has fired"
+            puts "--------------------------------------"
+            puts "now your turn!"
+        end
+
+    end
 
 
-    
-
-
-
-
-     
-    
-
-    
-        
-
-
-
-
-
-
-
-
-
-    
+ 
 
     
 end
-
+# win_func()
 begin_game(o, m, ai)
 

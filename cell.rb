@@ -17,13 +17,11 @@ class Cell
         end
     end
     
-
     def take(ship)
-        @content = ship
-        @status = "taken"
+       if @content = ship
+            @status = "taken"
+       end
     end
-
-
 
     def content()
         @content
