@@ -30,7 +30,7 @@ class Grid < Cell
 
     def atk_cell(row, col)
         if row < @size && col < @size && row >= 0 && col >= 0
-            @grid[row][col].if_hit()
+            return @grid[row][col].if_hit()
         else
             return "invalid shot"
         end

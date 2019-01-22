@@ -37,9 +37,6 @@ class Enemy < Enemycell
         end 
     end
 
-    def help_find()
-
-    end
 
     attr_reader :spots
     attr_reader :spots_to_fire

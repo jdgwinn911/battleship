@@ -46,15 +46,33 @@ def show_opp_board(m)
 end
 
 
-# def win_func(o, m)
-#     boards = [o, m]
-#     boards.each do |b|
+def game_ender(o, m)
+    player_spots = 0
+    ai_spots = 0
+    o.grid.each do |row|
+        row.each do |cell|
+            if cell.status == "X"
+                player_spots += 1
+            end
+        end
+    end
 
-#         b.grid.each do |row|
-#             row.each do |cell|
+    m.grid.each do |row|
+        row.each do |cell|
+            if cell.status == "X"
+                ai_spots += 1
+            end
+        end
+    end
 
-
-# end
+    if ai_spots == 14
+       return  "You Win!"
+    elsif player_spots == 14
+        return "You Lose"
+    else 
+       return true
+    end
+end
 
 def begin_game(o, m, ai)
     intro = {ship1: "Carrier = 5", ship2: "Battleship = 4", ship3: "cruiser = 3", ship4: "Submarine = 2"} 
@@ -81,31 +99,42 @@ def begin_game(o, m, ai)
     o.grid.each do |row|
         row.each do |cell|
             while true
-                puts "what row would you like to fire at?"; replyrow = gets.chomp.to_i
-                puts "what column would you like to fire at?"; replycol = gets.chomp.to_i
-                if m.atk_cell(replyrow, replycol) != 'invalid shot'
-                    break
+                puts "what row would you like to fire at?"; replyrow = gets.chomp
+                puts "what column would you like to fire at?"; replycol = gets.chomp
+                if replyrow.gsub(/\D/, "").length > 0 && replycol.gsub(/\D/, "").length > 0
+                    if m.atk_cell(replyrow.to_i, replycol.to_i) != 'invalid shot'
+                        break
+                    end
                 end
             end
-            system('cls')
-            show_opp_board(m); show_board(o)
-
+            if m.atk_cell(replyrow.to_i, replycol.to_i).is_a? String
+                p "------The Status of Fired Upon Cell!!-------"
+                p m.atk_cell(replyrow.to_i, replycol.to_i)
+                p "------The Status of Fired Upon Cell!!-------"
+                sleep(3)
+            end
+                if game_ender(o, m) != true
+                    break
+                end
             spot = o.pick_open_cell()
             o.atk_cell(spot[0], spot[1])
             system('cls')
             show_opp_board(m); show_board(o)
-
+            if game_ender(o, m) != true
+                break
+            end
+            
             puts "look at your grid! the enemy has fired"
             puts "--------------------------------------"
             puts "now your turn!"
         end
-
+        if game_ender(o, m) != true
+            break
+        end
     end
-
-
- 
-
-    
+    if game_ender(o, m) != true
+        puts game_ender(o, m)
+    end
 end
 # win_func()
 begin_game(o, m, ai)

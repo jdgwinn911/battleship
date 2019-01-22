@@ -3,18 +3,18 @@ class Cell
     def initialize()
         @status = "open"
         @content = "(-)" 
-        @size = size 
         @ship = ship
         @name = name
     end
 
     def if_hit()
         if @content.class == Ship
-            @content.take_a_hit() 
             @status = "X" 
+            return @content.take_a_hit() 
         elsif @content == "(-)"
            @status = "O"
         end
+        # return false
     end
     
     def take(ship)
@@ -38,7 +38,6 @@ class Cell
     end
     attr_reader :name
     attr_reader :ship
-    attr_reader :size
     attr_reader :coordinates
     attr_reader :content
     attr_reader :status

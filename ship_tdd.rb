@@ -46,8 +46,11 @@ class Boats < Minitest::Test
     end
 
     def test_that_the_ships_can_be_hit
-        x = Ship.new(2, "Destroyer")
-        assert_equal("You hit a ship!", x.take_a_hit())
+        x = Ship.new(4, "Destroyer")
+        a = [x, x, x, x]
+        a.each {|s| s.take_a_hit()}
+        p x.take_a_hit()
+        assert_equal(x.hit_count == x.size, x.take_a_hit())
     end
 
 end
