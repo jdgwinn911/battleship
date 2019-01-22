@@ -22,13 +22,14 @@ class Ship
         @hit_count += 1
         p @hit_count
         if @hit_count != @size
-            return "You hit a ship!"
+            @ship_status = "You hit a ship!"
         elsif @hit_count == @size
-            return "#{@name.capitalize} was Destroyed"
+            @ship_status = "#{name.capitalize} was Destroyed"
         end
         # return true
     end
 
+    attr_reader :ship_status
     attr_reader :ship
     attr_reader :size
     attr_reader :name

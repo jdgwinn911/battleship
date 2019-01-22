@@ -45,6 +45,13 @@ def show_opp_board(m)
     show_board(m)
 end
 
+def hit_or_miss(m, replyrow, replycol)
+    if m.grid[replyrow.to_i][replycol.to_i].content.class == Ship
+        return m.grid[replyrow.to_i][replycol.to_i].content.ship_status
+    else
+        return "Miss!"
+    end
+end
 
 def game_ender(o, m)
     player_spots = 0
@@ -103,16 +110,17 @@ def begin_game(o, m, ai)
                 puts "what column would you like to fire at?"; replycol = gets.chomp
                 if replyrow.gsub(/\D/, "").length > 0 && replycol.gsub(/\D/, "").length > 0
                     if m.atk_cell(replyrow.to_i, replycol.to_i) != 'invalid shot'
+                        p hit_or_miss(m,replyrow, replycol)
                         break
                     end
                 end
             end
-            if m.atk_cell(replyrow.to_i, replycol.to_i).is_a? String
-                p "------The Status of Fired Upon Cell!!-------"
-                p m.atk_cell(replyrow.to_i, replycol.to_i)
-                p "------The Status of Fired Upon Cell!!-------"
+            # if m.atk_cell(replyrow.to_i, replycol.to_i).is_a? String
+                # p "------The hit_count of Fired Upon Cell!!-------"
+                #  m.grid[replyrow.to_i][replycol.to_i].content.hit_count
+                # p "------The hit_count of Fired Upon Cell!!-------"
                 sleep(3)
-            end
+            # end
                 if game_ender(o, m) != true
                     break
                 end
