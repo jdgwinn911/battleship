@@ -14,7 +14,7 @@ class Cell
         elsif @content == "(-)"
            @status = "O"
         end
-        # return false
+      
     end
     
     def take(ship)

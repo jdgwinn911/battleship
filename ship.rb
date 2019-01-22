@@ -18,7 +18,7 @@ class Ship
         return @hit_count
     end
 
-    def take_a_hit()  #ship.size.times do should do the trick!!!!!!   #{hit_count} #{hit_count}
+    def take_a_hit()  
         @hit_count += 1
         p @hit_count
         if @hit_count != @size
@@ -26,7 +26,7 @@ class Ship
         elsif @hit_count == @size
             @ship_status = "#{name.capitalize} was Destroyed"
         end
-        # return true
+      
     end
 
     attr_reader :ship_status

@@ -23,7 +23,7 @@ def show_board(o)
         countertop += 1
         else print " #{countertop}"
             countertop += 1
-        end
+        end 
     end
     puts "\n"
     counter = 0
@@ -115,12 +115,7 @@ def begin_game(o, m, ai)
                     end
                 end
             end
-            # if m.atk_cell(replyrow.to_i, replycol.to_i).is_a? String
-                # p "------The hit_count of Fired Upon Cell!!-------"
-                #  m.grid[replyrow.to_i][replycol.to_i].content.hit_count
-                # p "------The hit_count of Fired Upon Cell!!-------"
                 sleep(3)
-            # end
                 if game_ender(o, m) != true
                     break
                 end
