@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script src="/js/bs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bs1.css">
+    </head>
+    <body>
+        <center>
+        <h2><font color="red"</font>Welcome to Battleship!</h2>
+        <form method="post" action='/page1'>
+            <div class="nxtbtn">
+                <button class=" button2">Next Page</button>
+            </div>    
+        </form>
+        <div class="mdlbtn">
+            <button class="button" id="bBtn" onclick ="showModal()">Game Info</button>
+        </div>
+        <div id="bModal" class="bmodal" onclick="winMod(event)">
+            <div class="bsinfo">
+                <span class="closeIt" onclick="onModal()">&times;</span>
+                <h3><p>the whole point of the game is to sink all enemy ships.
+                You will be asked the Grid coordinates.
+                The coordinates you give will determine ship placement and firing
+                When you hit a ship, or yours get hit, they will be replaced with X's
+                if you or the enemy miss then you will see O's on the board</p></h3>
+            </div>
+        </div>        
+
+        <h4><a href="https://www.thesprucecrafts.com/the-basic-rules-of-battleship-411069">Link to Battleship Guide</a></h4>
+        </center>
+
+    </body>
+
+
+
+
+
+</html>
