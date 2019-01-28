@@ -1,10 +1,36 @@
 <html>
     <head>
         <script src="/js/bs.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/bs.css">
+        <link rel="stylesheet" type="text/css" href="css/bs3.css">
     </head>
     <body>
-        <form method="post" action="page3">
+        <center>
+            <table id="table">
+                <tr>
+                <th> </th>
+                <%board.grid.size.times do |v|%>
+                <th><%=v%></th>
+                <%end%>
+                </tr>
+                <form method="post" action="page3">
+                <button class=" button">back</button>
+                <br><br>
+           
+                <%board.grid.each_with_index do |v, i|%>
+                    <tr>
+                    <th><%=i%></th>
+                        <%v.each_with_index do |k, o|%>
+                            <th><%=k%></th>
+                        <%end%>
+                    </tr>
+                <%end%>    
+
+
+            </table>            
+        </center>
+
+
+
 
         </form>
 
@@ -12,3 +38,12 @@
     </body> 
 
 </html>   
+
+
+
+
+
+
+
+
+

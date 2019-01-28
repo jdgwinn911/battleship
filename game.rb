@@ -3,16 +3,16 @@ require_relative "cell.rb"
 require_relative "board.rb"
 require_relative "enemy_cell.rb"
 require_relative "enemy.rb"
-puts "what level of difficulty do you choose? easy[e], hard[h], difficult[d]"
-answer = gets.chomp
-system('cls')
-if answer == "e"
-   o = Grid.new(12, "player"); m = Grid.new(12, "ai"); ai = Enemy.new(m, o)
-elsif answer == "h"
-   o = Grid.new(24,"player"); m = Grid.new(24, "ai"); ai = Enemy.new(m, o)
-else
-   o = Grid.new(36, "player"); m = Grid.new(36, "ai"); ai = Enemy.new(m, o)
-end
+# puts "what level of difficulty do you choose? easy[e], hard[h], difficult[d]"
+# answer = gets.chomp
+# system('cls')
+# if answer == "e"
+#    o = Grid.new(12, "player"); m = Grid.new(12, "ai"); ai = Enemy.new(m, o)
+# elsif answer == "h"
+#    o = Grid.new(24,"player"); m = Grid.new(24, "ai"); ai = Enemy.new(m, o)
+# else
+#    o = Grid.new(36, "player"); m = Grid.new(36, "ai"); ai = Enemy.new(m, o)
+# end
 
 def show_board(o)
     countertop = 0
@@ -140,5 +140,5 @@ def begin_game(o, m, ai)
     end
 end
 # win_func()
-begin_game(o, m, ai)
+# begin_game(o, m, ai)
 

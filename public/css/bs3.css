@@ -1,0 +1,27 @@
+body {
+    background: url(/images/nice.jpg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* overflow:hidden; */
+}
+
+
+.button {
+    display: inline-block;
+    padding: 13px 7px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: solid;
+    color: #e91e1ee3;
+    background-color: #8BC34A;
+    border: #4CAF50;
+    border-radius: 12px;
+  
+}
+
+.button:active {
+    background-color: #8BC34A;
+    
+    transform: translateY(3px);
+}
