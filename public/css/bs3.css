@@ -1,8 +1,8 @@
 body {
-    background: url(/images/nice.jpg); 
+    background: linear-gradient(45deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(/images/nicer4.jpg); 
     background-repeat: no-repeat;
     background-size: 100%;
-    /* overflow:hidden; */
+    overflow:hidden;
 }
 
 
@@ -24,4 +24,33 @@ body {
     background-color: #8BC34A;
     
     transform: translateY(3px);
+}
+#mytable{
+    color: aqua;
+    float: left;
+    border: none;
+    margin: -1px;
+    /* overflow: hidden; */
+    position: absolute;
+    zoom: 83%;
+    top: 0%;
+    left: -2px;
+}
+
+#enemytable{
+    float: right;
+    color: ivory;
+    border: none;
+    margin-top: -11px;
+    margin-right: -10px;
+    overflow: hidden;
+    zoom: 83%;
+}
+.coordinates{
+    width: 183px;
+    height: 100px;
+    border: 1px solid rgba(0, 0, 255, 0); 
+}
+input{
+  width:82%;  
 }

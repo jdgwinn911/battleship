@@ -5,16 +5,15 @@
     </head>
     <body>
         <center>
-            <table id="table">
+         <form method="post" action="page3">
+            <div class="player1">
+            <table id="mytable">
                 <tr>
                 <th> </th>
                 <%board.grid.size.times do |v|%>
                 <th><%=v%></th>
                 <%end%>
                 </tr>
-                <form method="post" action="page3">
-                <button class=" button">back</button>
-                <br><br>
            
                 <%board.grid.each_with_index do |v, i|%>
                     <tr>
@@ -25,8 +24,43 @@
                     </tr>
                 <%end%>    
 
+            </table>            
+            </div>
+            <div class="enemyboard">
+            <table id="enemytable">
+                <tr>
+                <th> </th>
+                <%enemyboard.grid.size.times do |v|%>
+                <th><%=v%></th>
+                <%end%>
+                </tr>
+           
+                <%enemyboard.grid.each_with_index do |v, i|%>
+                    <tr>
+                    <th><%=i%></th>
+                        <%v.each_with_index do |k, o|%>
+                            <th><%=k%></th>
+                        <%end%>
+                    </tr>
+                <%end%>    
+                </div>
+            
 
             </table>            
+
+            <div class="coordinates">
+            <font color="red"><h3> row coordinate</h3></font>
+                <input type="number" name="row" placeholder="row">
+                 <font color="red"><h3>column coordinate</h3></font>
+                <input type="number" name="col" placeholder="column">
+                 <font color="red"><h3>horizontal or vertical</h3></font>
+                <input type="text" name="pos" placeholder="hor/vert">
+                <input type='hidden' name='ship_num' value='<%=ship_counter%>'>
+                <br><br>
+                <button class=" button">Enter</button>
+            </div>
+            
+
         </center>
 
 

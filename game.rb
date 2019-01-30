@@ -3,6 +3,7 @@ require_relative "cell.rb"
 require_relative "board.rb"
 require_relative "enemy_cell.rb"
 require_relative "enemy.rb"
+
 # puts "what level of difficulty do you choose? easy[e], hard[h], difficult[d]"
 # answer = gets.chomp
 # system('cls')
@@ -90,12 +91,7 @@ def begin_game(o, m, ai)
 
     intro.each do |k, v|
         while true
-            puts "What row would you want to place the #{v}?"; replyrow = gets.chomp.to_i
-            puts "What column would you want to place the #{v}";replycol = gets.chomp.to_i
-            puts "would you like to place the ship vertical or horizontal?"; replyvert = gets.chomp
             if o.mastor_funk(Ship.new(v[-1].to_i,"(#{v[0]})"), replyrow, replycol, replyvert) != "Invalid Placement!"
-                system('cls')
-                show_opp_board(m); show_board(o)
                 break
             end
         end
