@@ -27,6 +27,7 @@ post '/page2' do
   
   session[:board] = Grid.new(params[:gridsize].to_i, "player")
   session[:enemyboard] = Grid.new(params[:gridsize].to_i, "ai")
+  session[:err] = ""
   redirect '/page3'
 end
 
@@ -37,18 +38,27 @@ get '/page3' do
   row = session[:row].to_i || 0
   col = session[:col].to_i || 0
   pos = session[:pos].to_s || ""
-  board.mastor_funk(session[:place_ship], row, col, pos) if pos != ""
-  erb :bs3, locals: {board: board, enemyboard: enemyboard, row: row, col: col, pos: pos, ship_num: ship_num}
+  if session[:err] != "Invalid Placement!"
+    board.mastor_funk(session[:place_ship], row, col, pos) if pos != "" 
+  end
+  erb :bs3, locals: {board: board, enemyboard: enemyboard, row: row, col: col, pos: pos, ship_num: ship_num,  err: session[:err]}
 end
 
 post '/page3' do
+  session[:err] = ""
   session[:increase] = params[:ship_num].to_i
   session[:row] = params[:row]
   session[:col] = params[:col]
   session[:pos] = params[:pos]
   ships = [carrier = Ship.new(5, "(C)"), battleship = Ship.new(4, "(B)"), cruiser = Ship.new(3, "(c)"), submarine = Ship.new(2, "(S)")]
-  session[:place_ship] = ships[session[:increase]]
-  session[:increase] += 1
+  if session[:board].mastor_funk(ships[session[:increase]],params[:row].to_i, params[:col].to_i, params[:pos].to_s) != "Invalid Placement!"
+    session[:place_ship] = ships[session[:increase]]
+    session[:increase] += 1
+  else
+    session[:err] = "Invalid Placement!"
+  end
+
+  
   redirect '/page3'
 end
 
