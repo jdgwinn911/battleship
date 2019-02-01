@@ -20,3 +20,13 @@ var span = document.getElementsByClassName("closeIt")[0];
     }
 }
 
+function removeElement() {
+    var num = document.getElementById("ship_num");
+    if (num.value >= 4){
+        var elementt = document.getElementById("HV");
+        elementt.parentNode.removeChild(elementt);
+        var element = document.getElementById("pos");
+        element.parentNode.removeChild(element);
+    }
+}
+

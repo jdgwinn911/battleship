@@ -27,6 +27,7 @@ post '/page2' do
   
   session[:board] = Grid.new(params[:gridsize].to_i, "player")
   session[:enemyboard] = Grid.new(params[:gridsize].to_i, "ai")
+  session[:enemy] = Enemy.new(session[:enemyboard], session[:board])
   session[:err] = ""
   redirect '/page3'
 end
@@ -40,6 +41,10 @@ get '/page3' do
   pos = session[:pos].to_s || ""
   if session[:err] != "Invalid Placement!"
     board.mastor_funk(session[:place_ship], row, col, pos) if pos != "" 
+  end
+  
+  if session[:increase] == 4
+    session[:enemy].deploy_opp_ships()
   end
   erb :bs3, locals: {board: board, enemyboard: enemyboard, row: row, col: col, pos: pos, ship_num: ship_num,  err: session[:err]}
 end
@@ -57,6 +62,7 @@ post '/page3' do
   else
     session[:err] = "Invalid Placement!"
   end
+  session[:enemyboard].atk_cell(params[:row].to_i, params[:col].to_i)
 
   
   redirect '/page3'

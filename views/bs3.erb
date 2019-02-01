@@ -3,7 +3,7 @@
         <script src="/js/bs.js"></script>
         <link rel="stylesheet" type="text/css" href="css/bs3.css">
     </head>
-    <body>
+    <body onload="removeElement()">
         <center>
          <form method="post" action="page3">
             <div class="player1">
@@ -53,10 +53,10 @@
                 <input type="number" name="row" placeholder="row">
                  <font color="red"><h3>column coordinate</h3></font>
                 <input type="number" name="col" placeholder="column">
-                 <font color="red"><h3>horizontal or vertical</h3></font>
-                <input type="text" name="pos" placeholder="hor/vert">
-                <input type='hidden' name='ship_num' value='<%=ship_num%>'>
-                <h1><%=err%></h1>
+                 <font id="HV" color="red"><h3>horizontal or vertical</h3></font>
+                <input type="text" name="pos" placeholder="hor/vert" id="pos">
+                <input type='hidden' name='ship_num' value='<%=ship_num%>' id="ship_num">
+                <font color="red"><h1><%=err%></h1></font>
                 <br><br>
                 <button class=" button">Enter</button>
             </div>
