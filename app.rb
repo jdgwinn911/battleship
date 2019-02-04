@@ -5,7 +5,7 @@ require_relative "board.rb"
 require_relative "enemy_cell.rb"
 require_relative "enemy.rb"
 require_relative "game.rb"
-use Rack::Session::Pool, :expire_after => 60 * 1
+use Rack::Session::Pool
 
 
 get '/' do
@@ -29,6 +29,7 @@ post '/page2' do
   session[:enemyboard] = Grid.new(params[:gridsize].to_i, "ai")
   session[:enemy] = Enemy.new(session[:enemyboard], session[:board])
   session[:err] = ""
+  session[:fire_err] = ""
   redirect '/page3'
 end
 
@@ -42,14 +43,16 @@ get '/page3' do
   if session[:err] != "Invalid Placement!"
     board.mastor_funk(session[:place_ship], row, col, pos) if pos != "" 
   end
-  
+    p session[:increase]
   if session[:increase] == 4
+    session[:increase] += 1
     session[:enemy].deploy_opp_ships()
   end
-  erb :bs3, locals: {board: board, enemyboard: enemyboard, row: row, col: col, pos: pos, ship_num: ship_num,  err: session[:err]}
+  erb :bs3, locals: {board: board, enemyboard: enemyboard, row: row, col: col, pos: pos, ship_num: ship_num,  err: session[:err], fire_err: session[:fire_err]}
 end
 
 post '/page3' do
+  session[:fire_err] = ""
   session[:err] = ""
   session[:increase] = params[:ship_num].to_i
   session[:row] = params[:row]
@@ -62,7 +65,17 @@ post '/page3' do
   else
     session[:err] = "Invalid Placement!"
   end
-  session[:enemyboard].atk_cell(params[:row].to_i, params[:col].to_i)
+
+  if session[:increase] >= 4
+    if session[:enemyboard].atk_cell(params[:row].to_i, params[:col].to_i) == "Invalid Shot!" 
+      session[:fire_err] = "Invalid Shot!"
+    end
+  end
+  hit_or_miss(session[:enemyboard], params[:row].to_i,  params[:col].to_i )
+  game_ender(session[:board], session[:enemyboard])
+  
+
+
 
   
   redirect '/page3'

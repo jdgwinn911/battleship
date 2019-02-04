@@ -54,3 +54,8 @@ body {
 input{
   width:82%;  
 }
+
+.stopwatch{
+    padding-left: 45%;
+    padding-top: 24%;
+}

@@ -20,13 +20,12 @@ class Ship
 
     def take_a_hit()  
         @hit_count += 1
-        p @hit_count
         if @hit_count != @size
             @ship_status = "You hit a ship!"
         elsif @hit_count == @size
-            @ship_status = "#{name.capitalize} was Destroyed"
+            @ship_status = "Ship was Destroyed!"
+            return @ship_status
         end
-      
     end
 
     attr_reader :ship_status

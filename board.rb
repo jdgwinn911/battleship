@@ -32,7 +32,7 @@ class Grid < Cell
         if row < @size && col < @size && row >= 0 && col >= 0
             return @grid[row][col].if_hit()
         else
-            return "invalid shot"
+            return "Invalid Shot!"
         end
 
     end
