@@ -24,6 +24,7 @@ get '/page2' do
 end
 
 post '/page2' do
+  session.clear
   
   session[:board] = Grid.new(params[:gridsize].to_i, "player")
   session[:enemyboard] = Grid.new(params[:gridsize].to_i, "ai")
@@ -34,6 +35,8 @@ post '/page2' do
 end
 
 get '/page3' do
+  hitter = session[:hitter] || ""
+  fire = session[:startfire] || ""
   board = session[:board] 
   enemyboard = session[:enemyboard] 
   ship_num = session[:increase] || 0
@@ -43,15 +46,19 @@ get '/page3' do
   if session[:err] != "Invalid Placement!"
     board.mastor_funk(session[:place_ship], row, col, pos) if pos != "" 
   end
-    p session[:increase]
-  if session[:increase] == 4
-    session[:increase] += 1
+  if fire == "fire"
     session[:enemy].deploy_opp_ships()
   end
-  erb :bs3, locals: {board: board, enemyboard: enemyboard, row: row, col: col, pos: pos, ship_num: ship_num,  err: session[:err], fire_err: session[:fire_err]}
+
+  if session[:increase] == 4 
+    ship_num += 1
+  end
+  
+  erb :bs3, locals: {board: board, enemyboard: enemyboard, hitter: hitter, row: row, col: col, pos: pos, ship_num: ship_num,  err: session[:err], fire_err: session[:fire_err]}
 end
 
 post '/page3' do
+  session[:startfire] = ""
   session[:fire_err] = ""
   session[:err] = ""
   session[:increase] = params[:ship_num].to_i
@@ -62,22 +69,25 @@ post '/page3' do
   if session[:board].mastor_funk(ships[session[:increase]],params[:row].to_i, params[:col].to_i, params[:pos].to_s) != "Invalid Placement!"
     session[:place_ship] = ships[session[:increase]]
     session[:increase] += 1
+    session[:startfire] = "fire" if session[:increase] == 4
   else
     session[:err] = "Invalid Placement!"
   end
 
-  if session[:increase] >= 4
-    if session[:enemyboard].atk_cell(params[:row].to_i, params[:col].to_i) == "Invalid Shot!" 
+  spot = session[:board].pick_open_cell()
+  if session[:increase] > 4
+    if session[:enemyboard].atk_cell(params[:row].to_i, params[:col].to_i) != "Invalid Shot!"
+      session[:board].atk_cell(spot[0], spot[1])
+      p session[:hitter]
+      session[:hitter] = hit_or_miss(session[:enemyboard], params[:row].to_i, params[:col].to_i)
+      p session[:hitter]
+    else
       session[:fire_err] = "Invalid Shot!"
     end
   end
-  hit_or_miss(session[:enemyboard], params[:row].to_i,  params[:col].to_i )
-  game_ender(session[:board], session[:enemyboard])
-  
-
-
 
   
+
   redirect '/page3'
 end
 

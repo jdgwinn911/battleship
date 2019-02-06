@@ -9,7 +9,7 @@ body {
 .button {
     display: inline-block;
     padding: 13px 7px;
-    font-size: 24px;
+    font-size: 21px;
     cursor: pointer;
     text-align: center;
     text-decoration: solid;
@@ -50,12 +50,21 @@ body {
     width: 183px;
     height: 100px;
     border: 1px solid rgba(0, 0, 255, 0); 
+    border-top: darkred;
 }
 input{
-  width:82%;  
+    width: 42%;  
 }
 
 .stopwatch{
-    padding-left: 45%;
-    padding-top: 24%;
+    padding-left: 48%;
+    padding-top: 21%;
+}
+.hitormiss{
+    color: red;
+    font-size: larger;
+    padding-left: 43%;
+}
+th{
+    font-size: small;
 }

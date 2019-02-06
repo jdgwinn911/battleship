@@ -24,9 +24,9 @@ class Grid < Cell
             end
 
         end
-
-                
     end
+
+    
 
     def atk_cell(row, col)
         if row < @size && col < @size && row >= 0 && col >= 0
@@ -34,6 +34,7 @@ class Grid < Cell
         else
             return "Invalid Shot!"
         end
+
 
     end
 

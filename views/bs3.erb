@@ -17,12 +17,13 @@
            
                 <%board.grid.each_with_index do |v, i|%>
                     <tr>
-                    <th><%=i%></th>
+                    <th><font size="2"><%=i%></font></th>
                         <%v.each_with_index do |k, o|%>
                             <th><%=k%></th>
                         <%end%>
                     </tr>
-                <%end%>    
+                <%end%>  
+
 
             </table>            
             </div>
@@ -44,17 +45,28 @@
                     </tr>
                 <%end%>    
                 </div>
-            
 
-            </table>            
+            </table>  
+            <div class="hitormiss">
+
+                
+                    <%=hitter%>
+                
+
+                <%=game_ender(board, enemyboard)%>
+
+            </div>          
 
             <div class="coordinates">
-            <font color="red"><h3> row coordinate</h3></font>
-                <input type="number" name="row" placeholder="row">
-                 <font color="red"><h3>column coordinate</h3></font>
-                <input type="number" name="col" placeholder="column">
-                 <font id="HV" color="red"><h3>horizontal or vertical</h3></font>
-                <input type="text" name="pos" placeholder="hor/vert" id="pos">
+            <font color="red"><h4> row<br>coordinate</h4></font>
+                <input type="number" name="row" placeholder="row" min="0" required>
+                 <font color="red"><h4>column<br>coordinate</h4></font>
+                <input type="number" name="col" placeholder="column" min="0" required>
+                 <font id="HV" color="red"><h4>horizontal<br>vertical</h4></font>
+                <select name="pos" id="pos">
+                    <option id="pos"  value="horizontal">Horizontal</option>
+                    <option id="pos"  value="vertical">Vertical</option>
+                </select>
                 <input type='hidden' name='ship_num' value='<%=ship_num%>' id="ship_num">
                 <font id="err"color="red"><h1><%=err%></h1></font>
                 <font id="fire_err"color="red"><h1><%=fire_err%></h1></font>
@@ -69,9 +81,13 @@
         </form>
 
            <div class="stopwatch" id="stopwatch">
-                <h1><font color="red"><span id="seconds">00</span>:<span id="tens">00</span></h1></font>
+                <h2><font color="red"><span id="seconds">00</span>:<span id="tens">00</span></h2></font>
                 <button onclick="stopWatch()"id="start">Start</button>
+                    <br>
+                    <br>
                 <button onclick="stopWatch()" id="stop">Stop</button>
+                    <br>
+                    <br>
                 <button onclick="stopWatch()" id="reset">Reset</button>
             </div>
 

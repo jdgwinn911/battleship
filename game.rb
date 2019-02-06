@@ -52,6 +52,8 @@ def hit_or_miss(m, replyrow, replycol)
     else
         return "Miss!"
     end
+
+
 end
 
 def game_ender(o, m)
@@ -78,7 +80,7 @@ def game_ender(o, m)
     elsif player_spots == 14
         return "You Lose"
     else 
-       return true
+       return ""
     end
 end
 

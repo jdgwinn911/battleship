@@ -15,7 +15,11 @@ class Ship
     end
 
     def hitter()
-        return @hit_count
+        # if @hit_count == nil
+        #     return "Invalid Shot!"
+        # else
+            return @hit_count
+        # end
     end
 
     def take_a_hit()  
@@ -23,7 +27,7 @@ class Ship
         if @hit_count != @size
             @ship_status = "You hit a ship!"
         elsif @hit_count == @size
-            @ship_status = "Ship was Destroyed!"
+            @ship_status = "#{name} was Destroyed!"
             return @ship_status
         end
     end
