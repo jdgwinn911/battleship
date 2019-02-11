@@ -30,27 +30,29 @@ body {
     float: left;
     border: none;
     margin: -1px;
-    /* overflow: hidden; */
-    position: absolute;
-    zoom: 83%;
+    zoom: 73%;
     top: 0%;
     left: -2px;
+    word-spacing: -2px;
+    
 }
 
 #enemytable{
     float: right;
     color: ivory;
     border: none;
-    margin-top: -11px;
+    margin-top: -4px;
     margin-right: -10px;
     overflow: hidden;
-    zoom: 83%;
+    zoom: 73%;
+    word-spacing: -2px;
 }
 .coordinates{
     width: 183px;
     height: 100px;
     border: 1px solid rgba(0, 0, 255, 0); 
     border-top: darkred;
+    
 }
 input{
     width: 42%;  
@@ -63,8 +65,39 @@ input{
 .hitormiss{
     color: red;
     font-size: larger;
-    padding-left: 43%;
+    padding-left: 10%;
 }
 th{
-    font-size: small;
+    font-size: smaller;
 }
+
+
+.grid_cell{
+
+}
+
+.enemygrid_cell{
+
+}
+
+.grid_button{
+    visibility: hidden;
+}
+
+.enemygrid_button{
+visibility: hidden;
+}
+
+input[type=radio]:checked ~ .check {
+    border: 5px solid #cc0909;
+} 
+input[type=radio]:checked ~ .check::before{
+    background: #cc0909;
+} 
+
+input[type=radio]:checked ~ label{
+    color: #cc0909;
+}
+
+
+

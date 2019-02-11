@@ -6,6 +6,7 @@
     <body onload="removeElement()">
         <center>
          <form method="post" action="page3">
+            <div class="player_container">
             <div class="player1">
             <table id="mytable">
                 <tr>
@@ -17,15 +18,17 @@
            
                 <%board.grid.each_with_index do |v, i|%>
                     <tr>
-                    <th><font size="2"><%=i%></font></th>
+                    <th><font size="2"><%=i%></th>
                         <%v.each_with_index do |k, o|%>
-                            <th><%=k%></th>
+                            <td class='grid_cell'><input type='radio' class='grid_button' id="gridbutton<%="#{i}#{o}"%>" name="grid_cell[]" value='<%=[i, o]%>' required>
+                            <label for="gridbutton<%="#{i}#{o}"%>"><%=k%></label></td>
                         <%end%>
                     </tr>
                 <%end%>  
 
-
-            </table>            
+            
+            </div>
+            </table>
             </div>
             <div class="enemyboard">
             <table id="enemytable">
@@ -40,7 +43,9 @@
                     <tr>
                     <th><%=i%></th>
                         <%v.each_with_index do |k, o|%>
-                            <th><%=k%></th>
+                            
+                             <td class='grid_cell'><input type='radio' class='enemygrid_button' id="enemygrid_button<%="#{i}#{o}"%>" name="enemygrid_cell[]" value='<%=[i, o]%>' required>
+                            <label for="enemygrid_button<%="#{i}#{o}"%>"><%=k%></label></td>
                         <%end%>
                     </tr>
                 <%end%>    
@@ -58,18 +63,19 @@
             </div>          
 
             <div class="coordinates">
-            <font color="red"><h4> row<br>coordinate</h4></font>
+            <%# <font color="red"><h4> row<br>coordinate</h4></font>
                 <input type="number" name="row" placeholder="row" min="0" required>
                  <font color="red"><h4>column<br>coordinate</h4></font>
-                <input type="number" name="col" placeholder="column" min="0" required>
+                <input type="number" name="col" placeholder="column" min="0" required> %>
                  <font id="HV" color="red"><h4>horizontal<br>vertical</h4></font>
                 <select name="pos" id="pos">
                     <option id="pos"  value="horizontal">Horizontal</option>
                     <option id="pos"  value="vertical">Vertical</option>
                 </select>
+                    <br>
                 <input type='hidden' name='ship_num' value='<%=ship_num%>' id="ship_num">
-                <font id="err"color="red"><h1><%=err%></h1></font>
-                <font id="fire_err"color="red"><h1><%=fire_err%></h1></font>
+                <font id="err"color="red"><%=err%></font>
+                <font id="fire_err"color="red"><%=fire_err%></font>
 
                 <br><br>
                 <button class=" button">Enter</button>
@@ -96,68 +102,6 @@
 
 </html>   
 
-<%# <script>
-window.onload = function () {
-  
-    var seconds = 00; 
-    var tens = 00; 
-    var appendTens = document.getElementById("tens")
-    var appendSeconds = document.getElementById("seconds")
-    var buttonStart = document.getElementById('start');
-    var buttonStop = document.getElementById('stop');
-    var buttonReset = document.getElementById('reset');
-    var Interval ;
-  
-    buttonStart.onclick = function() {
-      
-       clearInterval(Interval);
-       Interval = setInterval(startTimer, 10);
-    }
-    
-      buttonStop.onclick = function() {
-         clearInterval(Interval);
-    }
-    
-  
-    buttonReset.onclick = function() {
-       clearInterval(Interval);
-      tens = "00";
-        seconds = "00";
-      appendTens.innerHTML = tens;
-        appendSeconds.innerHTML = seconds;
-    }
-    
-     
-    
-    function startTimer () {
-      tens++; 
-      
-      if(tens < 9){
-        appendTens.innerHTML = "0" + tens;
-      }
-      
-      if (tens > 9){
-        appendTens.innerHTML = tens;
-        
-      } 
-      
-      if (tens > 99) {
-        console.log("seconds");
-        seconds++;
-        appendSeconds.innerHTML = "0" + seconds;
-        tens = 0;
-        appendTens.innerHTML = "0" + 0;
-      }
-      
-      if (seconds > 9){
-        appendSeconds.innerHTML = seconds;
-      }
-    
-    }
-    
-  
-  }
-</script> %>
 
 
 

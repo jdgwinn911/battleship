@@ -62,11 +62,29 @@ post '/page3' do
   session[:fire_err] = ""
   session[:err] = ""
   session[:increase] = params[:ship_num].to_i
-  session[:row] = params[:row]
-  session[:col] = params[:col]
+  temp = params[:grid_cell] || []
+  p temp
+
+  if temp != []
+    temp = temp[0].delete "[]"
+    temp = temp.split(",")
+    session[:row] = temp[0]
+    session[:col] = temp[1]
+  end
+  temp2 = params[:enemygrid_cell] || []
+  p temp2
+  if temp2 != []
+    temp2 = temp2[0].delete "[]"
+    temp2 = temp2.split(",")
+    session[:row] = temp2[0]
+    session[:col] = temp2[1]
+  end
+
+  p session[:row]
+  p session[:col]
   session[:pos] = params[:pos]
   ships = [carrier = Ship.new(5, "(C)"), battleship = Ship.new(4, "(B)"), cruiser = Ship.new(3, "(c)"), submarine = Ship.new(2, "(S)")]
-  if session[:board].mastor_funk(ships[session[:increase]],params[:row].to_i, params[:col].to_i, params[:pos].to_s) != "Invalid Placement!"
+  if session[:board].mastor_funk(ships[session[:increase]],session[:row].to_i, session[:col].to_i, params[:pos].to_s) != "Invalid Placement!"
     session[:place_ship] = ships[session[:increase]]
     session[:increase] += 1
     session[:startfire] = "fire" if session[:increase] == 4
@@ -76,10 +94,10 @@ post '/page3' do
 
   spot = session[:board].pick_open_cell()
   if session[:increase] > 4
-    if session[:enemyboard].atk_cell(params[:row].to_i, params[:col].to_i) != "Invalid Shot!"
+    if session[:enemyboard].atk_cell(session[:row].to_i, session[:col].to_i) != "Invalid Shot!"
       session[:board].atk_cell(spot[0], spot[1])
       p session[:hitter]
-      session[:hitter] = hit_or_miss(session[:enemyboard], params[:row].to_i, params[:col].to_i)
+      session[:hitter] = hit_or_miss(session[:enemyboard], session[:row].to_i, session[:col].to_i)
       p session[:hitter]
     else
       session[:fire_err] = "Invalid Shot!"
