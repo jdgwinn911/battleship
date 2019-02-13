@@ -32,10 +32,7 @@ function removeElement() {
         
     }
 }
-
-
 function stopWatch() {
-  
     var seconds = 00; 
     var tens = 00; 
     var appendTens = document.getElementById("tens")
@@ -92,22 +89,34 @@ function stopWatch() {
   
   }
 
-  function hideButton(){
-    var num = document.getElementById("ship_num");
-    var btn = document.getElementsByClassName("gridbutton");
-    if(num >= 4){
-    for(var i = 0; i < btn.length; i++){
-      btn[i].disabled = "disabled";
-    }}
-  }
+  var btn2 = document.getElementById("bBtn2");
+  var span2 = document.getElementsByClassName("closeIt2")[0];
 
-  function noRequire(){
-    var ebtn = document.getElementsByClassName("enemygrid_button");
-    var num = document.getElementById("ship_num");
-    if(num < 4){
-      for(var i = 0; i < ebtn.length; i++){
-        ebtn[i].disabled = "disabled";
-      }
+ function showModall(){
+    var modal = document.getElementById("bModal2");
+    modal.style.display = "block";
+}
+
+ function onModall(){
+    var modal = document.getElementById("bModal2");
+    var span2 = document.getElementsByClassName("closeIt2")[0];
+    modal.style.display = "none";
+}
+
+ function winModd(event){
+    var modal = document.getElementById("bModal2");
+    if (event.target == modal){
+      modal.style.display = "none";
     }
+}
 
+function changeText(){
+  var numb = document.getElementById("ship_num");
+  var text = document.getElementById("texty");
+  if(numb.value == 5){
+      text.textContent = 'Fire when ready!';
   }
+
+}
+
+

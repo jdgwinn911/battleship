@@ -60,7 +60,7 @@ input{
 
 .stopwatch{
     padding-left: 48%;
-    padding-top: 21%;
+    padding-top: 20%;
 }
 .hitormiss{
     color: red;
@@ -71,15 +71,31 @@ th{
     font-size: smaller;
 }
 
-
+.mdlbtn{
+    margin-left: 42%;
+}
 .grid_cell{
-
+    padding: 0%;
+    zoom: 31%;
+    font-size: -webkit-xxx-large;
 }
 
 .enemygrid_cell{
 
 }
+.specify{
+    color: aquamarine;
+    font-size: larger;
+    margin-left: 45%;
+    margin-top: -14%;
+}
 
+.specify2{
+    color: antiquewhite;
+    font-size: larger;
+    margin-top: -3%;
+    margin-left: 52%;
+}
 .grid_button{
     visibility: hidden;
 }
@@ -97,6 +113,66 @@ input[type=radio]:checked ~ .check::before{
 
 input[type=radio]:checked ~ label{
     color: #cc0909;
+}
+
+
+.bmodal
+{
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.bsinfo
+{
+    background-color: #a1f57cc2;
+    margin: 15% auto;
+    padding: 59px;
+    border: 1px solid #f10909;
+    width: 83%;
+    display: grid;
+    cursor: context-menu;
+    border-radius: 25px;
+}
+
+
+.closeit2
+{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+} 
+
+.button2 {
+    display: inline-block;
+    padding: 0px 0px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: solid;
+    color: #e91e1ee3;
+    background-color: #8BC34A;
+    border: #4CAF50;
+    border-radius: 11px;
+    margin-left: 9%;
+    margin-top: 11px;
+}
+.button2:active {
+  background-color: #8BC34A;
+  
+  transform: translateY(3px);
+}
+.start {
+    margin-top: -28%;
+    text-align: -webkit-center;
 }
 
 

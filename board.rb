@@ -10,7 +10,7 @@ class Grid < Cell
             @grid = Array.new(size) {Array.new(size) {Enemycell.new}}
         end
         @size = size
-        @end_point = size - 1
+        @end_point = size 
     end
 
     def place_ship(ship, row, col, pos)
@@ -26,7 +26,6 @@ class Grid < Cell
         end
     end
 
-    
 
     def atk_cell(row, col)
         if row < @size && col < @size && row >= 0 && col >= 0
@@ -57,9 +56,9 @@ class Grid < Cell
 
     def check_location(ship, row, col, pos)
         if pos == "horizontal"
-            col + ship.size < grid.length && (col < grid.length && row < grid.length) ? true : false
+            col + ship.size < grid.length + 1 && (col < grid.length + 1 && row < grid.length + 1) ? true : false
         elsif pos == "vertical"
-            row + ship.size < grid.length && (col < grid.length && row < grid.length) ? true : false
+            row + ship.size < grid.length + 1 && (col < grid.length + 1 && row < grid.length + 1) ? true : false
         else 
             err()
         end
