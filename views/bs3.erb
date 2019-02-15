@@ -3,7 +3,7 @@
         <script src="/js/bs.js"></script>
         <link rel="stylesheet" type="text/css" href="css/bs3.css">
     </head>
-    <body onload="removeElement(); changeText();">
+    <body onload="removeElement(); changeText(); endGame();">
         <center>
          <form method="post" action="page3">
             <div class="player_container">
@@ -52,7 +52,7 @@
                 </div>
 
             </table>  
-            <div class="hitormiss">
+            <div class="hitormiss" id="hitter">
 
                 
                     <%=hitter%>

@@ -10,7 +10,7 @@ class Grid < Cell
             @grid = Array.new(size) {Array.new(size) {Enemycell.new}}
         end
         @size = size
-        @end_point = size 
+        @end_point = size
     end
 
     def place_ship(ship, row, col, pos)
