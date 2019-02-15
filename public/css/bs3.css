@@ -175,5 +175,11 @@ input[type=radio]:checked ~ label{
     text-align: -webkit-center;
 }
 
+.err{
+    margin-top: 52%;
+}
+.fire_err{
+
+}
 
 
