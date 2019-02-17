@@ -1,15 +1,9 @@
-
-
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background: linear-gradient(45deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(/images/nicer4.jpg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow:hidden;
 }
-
-
 
 
 .button {
@@ -186,13 +180,4 @@ input[type=radio]:checked ~ label{
 }
 .fire_err{
 
-}
-
-.container{
-width: 1200px;
-min-height: 400px;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-z-index: 2;
 }

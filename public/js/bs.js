@@ -119,13 +119,13 @@ function changeText(){
 
 }
 
-function endGame(){
-  var table = document.getElementById("mytable");
-  var hitter = document.getElementById("hitter");
-  if(hitter == "You Lose"){
-    table.parentNode.removeChild(table);
+// function endGame(){
+//   var table = document.getElementById("mytable");
+//   var hitter = document.getElementById("hitter");
+//   if(hitter == "You Lose"){
+//     table.parentNode.removeChild(table);
 
-  }
-}
+//   }
+// }
 
 
