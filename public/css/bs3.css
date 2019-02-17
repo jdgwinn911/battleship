@@ -60,7 +60,7 @@ input{
 
 .stopwatch{
     padding-left: 48%;
-    padding-top: 26%
+    padding-top: 25%
 }
 .hitormiss{
     color: red;
@@ -73,7 +73,7 @@ th{
 
 .mdlbtn{
     margin-left: 42%;
-    margin-top: -12%;
+    margin-top: -13%;
 }
 .grid_cell{
     padding: 0%;
