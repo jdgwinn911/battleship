@@ -60,7 +60,7 @@ input{
 
 .stopwatch{
     padding-left: 48%;
-    padding-top: 20%;
+    padding-top: 26%
 }
 .hitormiss{
     color: red;
@@ -73,6 +73,7 @@ th{
 
 .mdlbtn{
     margin-left: 42%;
+    margin-top: -12%;
 }
 .grid_cell{
     padding: 0%;
@@ -87,7 +88,7 @@ th{
     color: aquamarine;
     font-size: larger;
     margin-left: 44%;
-    margin-top: -10%;
+    margin-top: -7%;
 }
 
 .specify2{
@@ -171,8 +172,8 @@ input[type=radio]:checked ~ label{
   transform: translateY(3px);
 }
 .start {
-    margin-top: -34%;
     text-align: -webkit-center;
+    margin-top: -28%;
 }
 
 .err{
