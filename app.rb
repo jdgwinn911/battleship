@@ -45,7 +45,8 @@ get '/page3' do
   col = session[:col].to_i || 0
   pos = session[:pos].to_s || ""
   if session[:err] != "Invalid Placement!"
-    board.mastor_funk(session[:place_ship], row, col, pos) if pos != "" 
+    board.mastor_funk(session[:place_ship], row, col, pos) if pos != ""
+  
   end
   if fire == "fire"
     session[:enemy].deploy_opp_ships()
@@ -54,7 +55,6 @@ get '/page3' do
   if session[:increase] == 4 
     ship_num += 1
   end
-
 
 
   erb :bs3, locals: {board: board, enemyboard: enemyboard, hitter: hitter, row: row, col: col, pos: pos, ship_num: ship_num,  err: session[:err], fire_err: session[:fire_err]}
@@ -100,9 +100,6 @@ post '/page3' do
       session[:fire_err] = "Invalid Shot!"
     end
   end
-
- 
-
 
 
   redirect '/page3'

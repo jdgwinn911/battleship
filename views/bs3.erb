@@ -6,6 +6,7 @@
     <body onload="removeElement(); changeText(); endGame();">
         <center>
          <form method="post" action="page3">
+            <div class="container">
             <div class="player_container">
             <div class="player1">
             <table id="mytable">
@@ -20,8 +21,8 @@
                     <tr>
                     <th><font size="2"><%=i%></th>
                         <%v.each_with_index do |k, o|%>
-                            <td class='grid_cell'><input type='radio' class='grid_button' id="gridbutton<%="#{i}#{o}"%>" name="grid_cell[]" value='<%=[i, o]%>' >
-                            <label class="lable" for="gridbutton<%="#{i}#{o}"%>"><%=k%></label></td>
+                            <td class='grid_cell'><input type='radio' class='grid_button' id="gridbutton<%="#{i},#{o}"%>" name="grid_cell[]" value='<%=[i, o]%>' >
+                            <label class="lable" for="gridbutton<%="#{i},#{o}"%>"><%=k%></label></td>
                         <%end%>
                     </tr>
                 <%end%>  
@@ -30,6 +31,8 @@
             </div>
             </table>
             </div>
+            </div>
+            <div class="econtainer">
             <div class="enemyboard">
             <table id="enemytable">
                 <tr>
@@ -44,8 +47,8 @@
                     <th><%=i%></th>
                         <%v.each_with_index do |k, o|%>
                             
-                             <td class='grid_cell'><input type='radio' class='enemygrid_button' id="enemygrid_button<%="#{i}#{o}"%>" name="enemygrid_cell[]" value='<%=[i, o]%>' >
-                            <label for="enemygrid_button<%="#{i}#{o}"%>"><%=k%></label></td>
+                             <td class='grid_cell'><input type='radio' class='enemygrid_button' id="enemygrid_button<%="#{i},#{o}"%>" name="enemygrid_cell[]" value='<%=[i, o]%>' >
+                            <label for="enemygrid_button<%="#{i},#{o}"%>"><%=k%></label></td>
                         <%end%>
                     </tr>
                 <%end%>    
@@ -127,6 +130,7 @@
 
         <div class="specify2">
         <p>enemy </p>
+        </div>
         </div>
 
     </body> 
