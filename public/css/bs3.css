@@ -88,7 +88,7 @@ th{
     color: aquamarine;
     font-size: larger;
     margin-left: 44%;
-    margin-top: 5%;
+    margin-top: -7%;
 }
 
 .specify2{
@@ -173,7 +173,7 @@ input[type=radio]:checked ~ label{
 }
 .start {
     text-align: -webkit-center;
-    margin-top: -28%;
+    margin-top: -17%;
 }
 
 .err{

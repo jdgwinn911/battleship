@@ -56,7 +56,6 @@ get '/page3' do
     ship_num += 1
   end
 
-
   erb :bs3, locals: {board: board, enemyboard: enemyboard, hitter: hitter, row: row, col: col, pos: pos, ship_num: ship_num,  err: session[:err], fire_err: session[:fire_err]}
 end
 
