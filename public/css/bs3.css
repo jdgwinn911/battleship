@@ -34,6 +34,9 @@ body {
     top: 0%;
     left: -2px;
     word-spacing: -2px;
+    box-shadow: 0px -1px 40px 14px #0ff;
+    /* in order: x offset, y offset, blur size, spread size, color */
+
     
 }
 
@@ -46,6 +49,7 @@ body {
     overflow: hidden;
     zoom: 73%;
     word-spacing: -2px;
+    box-shadow: 0px -1px 40px 14px rgb(255, 255, 255);
 }
 .coordinates{
     width: 183px;
@@ -175,6 +179,7 @@ input[type=radio]:checked ~ label{
 .start {
     text-align: -webkit-center;
     margin-top: -5%;
+    font-size: large;
 }
 
 .err{
